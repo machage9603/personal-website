@@ -15,15 +15,15 @@ export default function Home() {
           transition={{ duration: 1 }}
         ></motion.div>
         <Image
-          src="/katherine-oelsner.jpg"
-          alt="Katherine Oelsner"
+          src="/#"
+          alt="Mike Machage"
           width={150}
           height={150}
           className="rounded-full mb-6"
         />
-        <h1 className="text-3xl font-bold mb-2">KATHERINE OELSNER</h1>
+        <h1 className="text-3xl font-bold mb-2">MIKE MACHAGE</h1>
         <div className="w-16 h-px bg-[#2B2B2B] dark:bg-white my-4"></div>
-        <h2 className="text-lg mb-8">SENIOR SOFTWARE ENGINEER</h2>
+        <h2 className="text-lg mb-8">SOFTWARE ENGINEER</h2>
         <motion.div
           className="w-full h-px bg-[#2B2B2B] dark:bg-white mb-8"
           initial={{ width: 0 }}
@@ -31,13 +31,13 @@ export default function Home() {
           transition={{ duration: 1 }}
         ></motion.div>
         <div className="flex space-x-6">
-          <a href="https://github.com/katherineoelsner" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <a href="https://github.com/machage9603" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <Github className="w-6 h-6" />
           </a>
-          <a href="https://twitter.com/katherineoelsner" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+          <a href="https://twitter.com/sermachage" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
             <Twitter className="w-6 h-6" />
           </a>
-          <a href="https://www.linkedin.com/in/katherineoelsner" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/mikemachage/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <Linkedin className="w-6 h-6" />
           </a>
         </div>
