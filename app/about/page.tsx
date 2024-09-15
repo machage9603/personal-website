@@ -18,7 +18,7 @@ export default function About() {
           Hi, I am Mike Machage, a Software Engineer with a passion for building scalable and efficient web applications.
         </p>
         <p className="mb-4">
-          My expertise lies in full-stack development, with a focus on JavaScript technologies like React, Node.js, and TypeScript. I am always eager to learn and adapt to new technologies and methodologies.
+          I will help you think through your business idea and make it a reality is less than 90 days.My expertise lies in full-stack development, with a focus on JavaScript technologies like Next.js, React, Node.js, and TypeScript. I am always eager to learn and adapt to new technologies and methodologies.
         </p>
         <motion.a
           href="/mikemachageresume.pdf"
@@ -28,7 +28,7 @@ export default function About() {
           whileTap={{ scale: 0.95 }}
         >
           <Download className="w-5 h-5 mr-2" />
-          Download Resume
+          Download My Resume
         </motion.a>
         <motion.div
           className="w-full h-px bg-[#2B2B2B] dark:bg-white mt-8"
