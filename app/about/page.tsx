@@ -15,13 +15,13 @@ export default function About() {
         ></motion.div>
         <h1 className="text-3xl font-bold mb-6">About Me</h1>
         <p className="mb-4">
-          Hi, I'm Katherine Oelsner, a Senior Software Engineer with a passion for building scalable and efficient web applications. With over 8 years of experience in the tech industry, I've had the opportunity to work on a wide range of projects, from early-stage startups to large enterprise systems.
+          Hi, Im Katherine Oelsner, a Senior Software Engineer with a passion for building scalable and efficient web applications. With over 8 years of experience in the tech industry, Ive had the opportunity to work on a wide range of projects, from early-stage startups to large enterprise systems.
         </p>
         <p className="mb-4">
-          My expertise lies in full-stack development, with a focus on JavaScript technologies like React, Node.js, and TypeScript. I'm also well-versed in cloud technologies, particularly AWS, and I'm always eager to learn and adapt to new technologies and methodologies.
+          My expertise lies in full-stack development, with a focus on JavaScript technologies like React, Node.js, and TypeScript. Im also well-versed in cloud technologies, particularly AWS, and Im always eager to learn and adapt to new technologies and methodologies.
         </p>
         <p className="mb-8">
-          When I'm not coding, you can find me exploring hiking trails, reading sci-fi novels, or experimenting with new recipes in the kitchen. I'm always open to new opportunities and collaborations, so feel free to reach out!
+          When Im not coding, you can find me exploring hiking trails, reading sci-fi novels, or experimenting with new recipes in the kitchen. Im always open to new opportunities and collaborations, so feel free to reach out!
         </p>
         <motion.a
           href="/katherine-oelsner-resume.pdf"
