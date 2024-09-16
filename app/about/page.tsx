@@ -2,10 +2,12 @@
 
 import { Download } from "lucide-react";
 import { motion } from "framer-motion";
+import Navbar from "../components/Navbar";
 
 export default function About() {
   return (
     <div className="flex flex-col items-center justify-center p-4 min-h-screen">
+      <Navbar />
       <div className="w-full max-w-2xl flex flex-col items-center">
         <motion.div
           className="w-full h-px bg-[#2B2B2B] dark:bg-white mb-8"

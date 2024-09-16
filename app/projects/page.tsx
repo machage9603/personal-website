@@ -1,42 +1,62 @@
-'use client'
+"use client";
 
-import { useState, useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import Navbar from "../components/Navbar";
 
 const projects = [
-  { id: 1, title: 'Project 1', description: 'Description for Project 1', demo: 'https://demo1.com', github: 'https://github.com/project1' },
-  { id: 2, title: 'Project 2', description: 'Description for Project 2', demo: 'https://demo2.com', github: 'https://github.com/project2' },
-  { id: 3, title: 'Project 3', description: 'Description for Project 3', demo: 'https://demo3.com', github: 'https://github.com/project3' },
-]
+  {
+    id: 1,
+    title: "Project 1",
+    description: "Description for Project 1",
+    demo: "https://demo1.com",
+    github: "https://github.com/project1",
+  },
+  {
+    id: 2,
+    title: "Project 2",
+    description: "Description for Project 2",
+    demo: "https://demo2.com",
+    github: "https://github.com/project2",
+  },
+  {
+    id: 3,
+    title: "Project 3",
+    description: "Description for Project 3",
+    demo: "https://demo3.com",
+    github: "https://github.com/project3",
+  },
+];
 
 export default function Projects() {
-  const [currentProject, setCurrentProject] = useState(0)
-  const intervalRef = useRef<NodeJS.Timeout | null>(null)
-  const carouselRef = useRef<HTMLDivElement>(null)
+  const [currentProject, setCurrentProject] = useState(0);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    startCarousel()
-    return () => stopCarousel()
-  }, [])
+    startCarousel();
+    return () => stopCarousel();
+  }, []);
 
   const startCarousel = () => {
-    if (intervalRef.current) clearInterval(intervalRef.current)
+    if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
-      setCurrentProject((prev) => (prev + 1) % projects.length)
-    }, 1000)
-  }
+      setCurrentProject((prev) => (prev + 1) % projects.length);
+    }, 1000);
+  };
 
   const stopCarousel = () => {
-    if (intervalRef.current) clearInterval(intervalRef.current)
-  }
+    if (intervalRef.current) clearInterval(intervalRef.current);
+  };
 
   return (
     <div className="flex flex-col items-center justify-center p-4 min-h-screen">
+      <Navbar />
       <div className="w-full max-w-2xl flex flex-col items-center">
         <motion.div
           className="w-full h-px bg-[#2B2B2B] dark:bg-white mb-8"
           initial={{ width: 0 }}
-          animate={{ width: '100%' }}
+          animate={{ width: "100%" }}
           transition={{ duration: 1 }}
         ></motion.div>
         <h1 className="text-3xl font-bold mb-8 text-center">My Projects</h1>
@@ -81,10 +101,10 @@ export default function Projects() {
         <motion.div
           className="w-full h-px bg-[#2B2B2B] dark:bg-white mt-8"
           initial={{ width: 0 }}
-          animate={{ width: '100%' }}
+          animate={{ width: "100%" }}
           transition={{ duration: 1 }}
         ></motion.div>
       </div>
     </div>
-  )
+  );
 }
