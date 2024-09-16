@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
+import { Github, Coffee } from "lucide-react";
 
 const projects = [
   {
@@ -42,7 +43,7 @@ export default function Projects() {
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
       setCurrentProject((prev) => (prev + 1) % projects.length);
-    }, 1000);
+    }, 5000);
   };
 
   const stopCarousel = () => {
@@ -59,10 +60,12 @@ export default function Projects() {
           animate={{ width: "100%" }}
           transition={{ duration: 1 }}
         ></motion.div>
-        <h1 className="text-3xl font-bold mb-8 text-center">My Projects</h1>
+        <h1 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+          My Projects
+        </h1>
         <div
           ref={carouselRef}
-          className="relative overflow-hidden w-full"
+          className="relative overflow-hidden w-full mb-8"
           onMouseEnter={stopCarousel}
           onMouseLeave={startCarousel}
         >
@@ -72,15 +75,19 @@ export default function Projects() {
           >
             {projects.map((project) => (
               <div key={project.id} className="w-full flex-shrink-0 p-4">
-                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-                  <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
-                  <p className="mb-4">{project.description}</p>
+                <div className="bg-white rounded-lg shadow-lg p-6">
+                  <h2 className="text-xl md:text-2xl font-bold mb-2">
+                    {project.title}
+                  </h2>
+                  <p className="mb-4 text-sm md:text-base">
+                    {project.description}
+                  </p>
                   <div className="flex justify-between">
                     <a
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
+                      className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300 text-sm md:text-base"
                     >
                       Demo
                     </a>
@@ -88,7 +95,7 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
+                      className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300 text-sm md:text-base"
                     >
                       GitHub
                     </a>
@@ -97,6 +104,26 @@ export default function Projects() {
               </div>
             ))}
           </div>
+        </div>
+        <div className="flex justify-center space-x-4 mb-8">
+          <a
+            href="https://github.com/sponsors/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-full transition-colors duration-300"
+          >
+            <Github className="w-5 h-5 mr-2" />
+            Sponsor on GitHub
+          </a>
+          <a
+            href="https://www.buymeacoffee.com/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-800 rounded-full transition-colors duration-300"
+          >
+            <Coffee className="w-5 h-5 mr-2" />
+            Buy Me a Coffee
+          </a>
         </div>
         <motion.div
           className="w-full h-px bg-[#2B2B2B] dark:bg-white mt-8"

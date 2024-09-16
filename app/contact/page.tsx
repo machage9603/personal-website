@@ -1,31 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
+import { PhoneCall, Mail } from "lucide-react";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Here you would typically send the form data to your server or a service like Formspree
-    console.log("Form submitted:", formData);
-    // Reset form after submission
-    setFormData({ name: "", email: "", message: "" });
-  };
-
   return (
     <div className="flex flex-col items-center justify-center p-4 min-h-screen">
       <Navbar />
@@ -36,57 +15,25 @@ export default function Contact() {
           animate={{ width: "100%" }}
           transition={{ duration: 1 }}
         ></motion.div>
-        <h1 className="text-3xl font-bold mb-8 text-center">Contact Me</h1>
-        <form onSubmit={handleSubmit} className="space-y-4 w-full">
-          <div>
-            <label htmlFor="name" className="block mb-1">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600"
-            />
-          </div>
-          <div>
-            <label htmlFor="email" className="block mb-1">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600"
-            />
-          </div>
-          <div>
-            <label htmlFor="message" className="block mb-1">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              rows={4}
-              className="w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600"
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
+        <h1 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+          Contact Me
+        </h1>
+        <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 w-full">
+          <a
+            href="tel:+254707800048"
+            className="flex items-center justify-center space-x-2 p-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300 w-full sm:w-auto"
           >
-            Send Message
-          </button>
-        </form>
+            <PhoneCall className="w-6 h-6" />
+            <span className="text-lg">+254707800048</span>
+          </a>
+          <a
+            href="mailto:mikemachage@gmail.com"
+            className="flex items-center justify-center space-x-2 p-4 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors duration-300 w-full sm:w-auto"
+          >
+            <Mail className="w-6 h-6" />
+            <span className="text-lg">mikemachage@gmail</span>
+          </a>
+        </div>
         <motion.div
           className="w-full h-px bg-[#2B2B2B] dark:bg-white mt-8"
           initial={{ width: 0 }}

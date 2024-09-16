@@ -3,16 +3,26 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 43, 43, 43;
-  --background-rgb: 244, 237, 228;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: #e5e7eb;
+  --secondary-hover: #d1d5db;
 }
 
 .dark {
-  --foreground-rgb: 255, 255, 255;
-  --background-rgb: 45, 55, 72;
+  --primary: #60a5fa;
+  --primary-foreground: #ffffff;
+  --secondary: #374151;
+  --secondary-hover: #4b5563;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+}
+
+@layer utilities {
+  .transition-max-height {
+    transition-property: max-height;
+  }
 }
