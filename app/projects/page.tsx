@@ -11,21 +11,21 @@ const projects = [
     title: "Project 1",
     description: "Description for Project 1",
     demo: "https://demo1.com",
-    github: "https://github.com/project1",
+    github: "https://github.com/#",
   },
   {
     id: 2,
     title: "Project 2",
     description: "Description for Project 2",
     demo: "https://demo2.com",
-    github: "https://github.com/project2",
+    github: "https://github.com/#",
   },
   {
     id: 3,
     title: "Project 3",
     description: "Description for Project 3",
     demo: "https://demo3.com",
-    github: "https://github.com/project3",
+    github: "https://github.com/#",
   },
 ];
 
@@ -61,7 +61,7 @@ export default function Projects() {
           transition={{ duration: 1 }}
         ></motion.div>
         <h1 className="text-2xl md:text-3xl font-bold mb-8 text-center">
-          My Projects
+          My Recent Projects
         </h1>
         <div
           ref={carouselRef}
@@ -105,9 +105,9 @@ export default function Projects() {
             ))}
           </div>
         </div>
-        <div className="flex justify-center space-x-4 mb-8">
+        <div className="flex justify-center space-x-24 mb-0">
           <a
-            href="https://github.com/sponsors/yourusername"
+            href="https://github.com/sponsors/machage9603"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-full transition-colors duration-300"
@@ -116,7 +116,7 @@ export default function Projects() {
             Sponsor on GitHub
           </a>
           <a
-            href="https://www.buymeacoffee.com/yourusername"
+            href="https://www.buymeacoffee.com/machage"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-800 rounded-full transition-colors duration-300"
