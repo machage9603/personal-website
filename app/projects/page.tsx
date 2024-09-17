@@ -1,59 +1,57 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Navbar from "../components/Navbar";
-import { Github, Coffee } from "lucide-react";
+import { Github, Coffee, ChevronLeft, ChevronRight } from "lucide-react";
 
 const projects = [
   {
     id: 1,
-    title: "Project 1",
-    description: "Description for Project 1",
-    demo: "https://demo1.com",
-    github: "https://github.com/#",
+    title: "READMEaker",
+    description:
+      "A README generator embedded with AI. This tool helps developers create README files with assistance of ready made section templates and AI.",
+    demo: "https://ppone.vercel.app/",
+    github: "https://github.com/machage9603/readmeaker",
+    image: "/readmeaker.png?height=400&width=600",
   },
   {
     id: 2,
-    title: "Project 2",
-    description: "Description for Project 2",
-    demo: "https://demo2.com",
-    github: "https://github.com/#",
+    title: "Connect 4",
+    description:
+      "Connect 4 game with two players. This classic game implementation allows two players to compete against each other in a strategic battle to connect four of their pieces in a row.",
+    demo: "https://react-project-rouge-kappa.vercel.app/",
+    github: "https://github.com/machage9603/connect-four",
+    image: "/connectfour.png?height=400&width=600",
   },
   {
     id: 3,
-    title: "Project 3",
-    description: "Description for Project 3",
-    demo: "https://demo3.com",
-    github: "https://github.com/#",
+    title: "Portfolio",
+    description:
+      "My personal portfolio website. Built with Next.js, TypeScript, and Framer Motion.",
+    demo: "https://mikemachage.tech",
+    github: "https://github.com/machage9603/personal-website",
+    image: "/portfolio.png?height=400&width=600",
   },
 ];
 
 export default function Projects() {
   const [currentProject, setCurrentProject] = useState(0);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    startCarousel();
-    return () => stopCarousel();
-  }, []);
-
-  const startCarousel = () => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(() => {
-      setCurrentProject((prev) => (prev + 1) % projects.length);
-    }, 5000);
+  const nextProject = () => {
+    setCurrentProject((prev) => (prev + 1) % projects.length);
   };
 
-  const stopCarousel = () => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
+  const prevProject = () => {
+    setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
   return (
     <div className="flex flex-col items-center justify-center p-4 min-h-screen">
       <Navbar />
-      <div className="w-full max-w-2xl flex flex-col items-center">
+      <div className="w-full max-w-6xl flex flex-col items-center">
         <motion.div
           className="w-full h-px bg-[#2B2B2B] dark:bg-white mb-8"
           initial={{ width: 0 }}
@@ -63,54 +61,72 @@ export default function Projects() {
         <h1 className="text-2xl md:text-3xl font-bold mb-8 text-center">
           My Recent Projects
         </h1>
-        <div
-          ref={carouselRef}
-          className="relative overflow-hidden w-full mb-8"
-          onMouseEnter={stopCarousel}
-          onMouseLeave={startCarousel}
-        >
+        <div ref={carouselRef} className="relative overflow-hidden w-full mb-8">
           <div
             className="flex transition-transform duration-300 ease-in-out"
             style={{ transform: `translateX(-${currentProject * 100}%)` }}
           >
             {projects.map((project) => (
-              <div key={project.id} className="w-full flex-shrink-0 p-4">
-                <div className="bg-white rounded-lg shadow-lg p-6">
-                  <h2 className="text-xl md:text-2xl font-bold mb-2">
-                    {project.title}
-                  </h2>
-                  <p className="mb-4 text-sm md:text-base">
-                    {project.description}
-                  </p>
-                  <div className="flex justify-between">
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300 text-sm md:text-base"
-                    >
-                      Demo
-                    </a>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300 text-sm md:text-base"
-                    >
-                      GitHub
-                    </a>
+              <div key={project.id} className="w-full flex-shrink-0">
+                <div className="relative bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden h-[350px]">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="absolute inset-0"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-4">
+                    <h2 className="text-xl font-bold mb-2 text-white">
+                      {project.title}
+                    </h2>
+                    <p className="mb-3 text-sm text-gray-200 overflow-y-auto max-h-[100px]">
+                      {project.description}
+                    </p>
+                    <div className="flex justify-between space-x-2">
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm transition-colors duration-300"
+                      >
+                        Demo
+                      </a>
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded text-sm transition-colors duration-300"
+                      >
+                        GitHub
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+          <button
+            onClick={prevProject}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r-md"
+            aria-label="Previous project"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            onClick={nextProject}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l-md"
+            aria-label="Next project"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
         </div>
-        <div className="flex justify-center space-x-24 mb-0">
+        <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-24 mb-8">
           <a
             href="https://github.com/sponsors/machage9603"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-full transition-colors duration-300"
+            className="flex items-center justify-center px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-full transition-colors duration-300 text-sm md:text-base"
           >
             <Github className="w-5 h-5 mr-2" />
             Sponsor on GitHub
@@ -119,7 +135,7 @@ export default function Projects() {
             href="https://www.buymeacoffee.com/machage"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-800 rounded-full transition-colors duration-300"
+            className="flex items-center justify-center px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-gray-800 rounded-full transition-colors duration-300 text-sm md:text-base"
           >
             <Coffee className="w-5 h-5 mr-2" />
             Buy Me a Coffee
