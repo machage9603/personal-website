@@ -1,9 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import { Github, Twitter, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
 import Navbar from "./components/Navbar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGithub,
+  faTwitter,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+
+// Prevent Font Awesome from adding its CSS since we did it manually above
+config.autoAddCss = false;
 
 export default function Home() {
   return (
@@ -32,30 +42,33 @@ export default function Home() {
           animate={{ width: "100%" }}
           transition={{ duration: 1 }}
         ></motion.div>
-        <div className="flex space-x-6">
+        <div className="flex space-x-8">
           <a
             href="https://github.com/machage9603"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
+            className="text-[#2B2B2B] dark:text-white hover:text-[#24292e] dark:hover:text-[#ebebeb] transition-colors duration-300"
           >
-            <Github className="w-6 h-6" />
+            <FontAwesomeIcon icon={faGithub} className="w-10 h-10" />
           </a>
           <a
             href="https://twitter.com/sermachage"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Twitter"
+            className="text-[#1DA1F2] hover:text-[#0c85d0] transition-colors duration-300"
           >
-            <Twitter className="w-6 h-6" />
+            <FontAwesomeIcon icon={faTwitter} className="w-10 h-10" />
           </a>
           <a
             href="https://www.linkedin.com/in/mike-machage/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
+            className="text-[#0077B5] hover:text-[#005885] transition-colors duration-300"
           >
-            <Linkedin className="w-6 h-6" />
+            <FontAwesomeIcon icon={faLinkedin} className="w-10 h-10" />
           </a>
         </div>
       </div>
