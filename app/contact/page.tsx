@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
-import { PhoneCall, Mail } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -19,20 +19,24 @@ export default function Contact() {
           Contact Me
         </h1>
         <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 w-full">
-          <a
+          <motion.a
             href="tel:+254707800048"
-            className="flex items-center justify-center space-x-2 p-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300 w-full sm:w-auto"
+            className="flex items-center justify-center space-x-2 px-6 py-3 text-current border border-current rounded-full transition-all duration-300 hover:bg-green-500 hover:border-green-500 hover:text-white active:bg-green-600 active:border-green-600 w-full sm:w-auto"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <PhoneCall className="w-6 h-6" />
+            <Phone className="w-5 h-5" />
             <span className="text-lg">+254707800048</span>
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             href="mailto:mikemachage@gmail.com"
-            className="flex items-center justify-center space-x-2 p-4 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors duration-300 w-full sm:w-auto"
+            className="flex items-center justify-center space-x-2 px-6 py-3 text-current border border-current rounded-full transition-all duration-300 hover:bg-blue-500 hover:border-blue-500 hover:text-white active:bg-[#DB4437] active:border-[#DB4437] w-full sm:w-auto"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <Mail className="w-6 h-6" />
-            <span className="text-lg">mikemachage@gmail</span>
-          </a>
+            <Mail className="w-5 h-5" />
+            <span className="text-lg">mikemachage@gmail.com</span>
+          </motion.a>
         </div>
         <motion.div
           className="w-full h-px bg-[#2B2B2B] dark:bg-white mt-8"
