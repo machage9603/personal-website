@@ -25,7 +25,7 @@ export default function Navbar() {
       <div className="flex justify-end items-center lg:hidden">
         <button
           onClick={toggleMenu}
-          className="p-2 rounded-full bg-secondary hover:bg-secondary-hover focus:bg-secondary-hover transition-colors duration-300"
+          className="p-2 rounded-full bg-gray-200 dark:bg-secondary hover:bg-gray-300 dark:hover:bg-secondary-hover focus:bg-gray-300 dark:focus:bg-secondary-hover transition-colors duration-300 hover:outline hover:outline-2 hover:outline-blue-500 focus:outline focus:outline-2 focus:outline-blue-500"
         >
           {isMenuOpen ? (
             <X className="w-6 h-6" />
@@ -46,7 +46,7 @@ export default function Navbar() {
               className={`px-4 py-2 rounded-full transition-colors duration-300 block ${
                 pathname === href
                   ? "bg-primary text-primary-foreground"
-                  : "hover:bg-secondary focus:bg-secondary"
+                  : "hover:outline hover:outline-2 hover:outline-blue-500 focus:outline focus:outline-2 focus:outline-blue-500"
               }`}
               onClick={() => setIsMenuOpen(false)}
             >
