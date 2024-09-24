@@ -11,8 +11,8 @@ const projects = [
     id: 1,
     title: "READMEaker",
     description:
-      "A README generator embedded with AI. This tool helps developers create README files with assistance of ready made section templates and AI.",
-    demo: "https://ppone.vercel.app/",
+      "A README editor/generator. This is an open-source project that helps developers create README files with assistance of ready made section templates and AI.",
+    demo: "https://readme.works/",
     github: "https://github.com/machage9603/readmeaker",
     image: "/readmeaker.png?height=400&width=600",
   },
