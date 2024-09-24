@@ -68,7 +68,12 @@ export default function Projects() {
           >
             {projects.map((project) => (
               <div key={project.id} className="w-full flex-shrink-0">
-                <div className="relative bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden h-[350px]">
+                <motion.div
+                  className="relative bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden h-[350px] group"
+                  initial={{ scale: 1 }}
+                  animate={{ scale: 1.1 }} // Zoom on load
+                  transition={{ duration: 1 }}
+                >
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -76,21 +81,22 @@ export default function Projects() {
                     objectFit="cover"
                     className="absolute inset-0"
                   />
-                  <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-4">
+                  {/* Overlay with text (always visible, with smooth transition on load) */}
+                  <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex flex-col justify-center items-center text-center p-4">
                     <h2 className="text-xl font-bold mb-2 text-white">
                       {project.title}
                     </h2>
-                    <p className="mb-3 text-sm text-gray-200 overflow-y-auto max-h-[100px]">
+                    <p className="mb-3 text-sm text-gray-200 max-h-[100px]">
                       {project.description}
                     </p>
-                    <div className="flex justify-between space-x-2">
+                    <div className="flex justify-center space-x-2">
                       <a
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm transition-colors duration-300"
                       >
-                        Demo
+                        Live Demo
                       </a>
                       <a
                         href={project.github}
@@ -98,11 +104,11 @@ export default function Projects() {
                         rel="noopener noreferrer"
                         className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded text-sm transition-colors duration-300"
                       >
-                        GitHub
+                        Source Code
                       </a>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             ))}
           </div>
