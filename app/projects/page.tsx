@@ -9,6 +9,14 @@ import { Github, Coffee, ChevronLeft, ChevronRight } from "lucide-react";
 const projects = [
   {
     id: 1,
+    title: "Glare & Glitz",
+    description: "An eyewear E-commerce store.",
+    demo: "https://adornment-ke.vercel.app/",
+    github: "https://github.com/machage9603/adornment-ke",
+    image: "/adornment.png?height=400&width=600",
+  },
+  {
+    id: 2,
     title: "READMEaker",
     description:
       "A README editor/generator. This is an open-source project that helps developers create README files with assistance of ready made section templates and AI.",
@@ -17,7 +25,7 @@ const projects = [
     image: "/readmeaker.png?height=400&width=600",
   },
   {
-    id: 2,
+    id: 3,
     title: "Connect 4",
     description:
       "Connect 4 game with two players. This classic game implementation allows two players to compete against each other in a strategic battle to connect four of their pieces in a row.",
@@ -26,7 +34,7 @@ const projects = [
     image: "/connectfour.png?height=400&width=600",
   },
   {
-    id: 3,
+    id: 4,
     title: "Portfolio",
     description:
       "My personal portfolio website. Built with Next.js, TypeScript, and Framer Motion.",
