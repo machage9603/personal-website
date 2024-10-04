@@ -8,6 +8,7 @@ import {
   faGithub,
   faTwitter,
   faLinkedin,
+  faMedium,
 } from "@fortawesome/free-brands-svg-icons";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -69,6 +70,15 @@ export default function Home() {
             className="text-[#0077B5] hover:text-[#005885] transition-colors duration-300"
           >
             <FontAwesomeIcon icon={faLinkedin} className="w-10 h-10" />
+          </a>
+          <a
+            href="https://medium.com/@machage_"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="text-[#0077B5] hover:text-[#005885] transition-colors duration-300"
+          >
+            <FontAwesomeIcon icon={faMedium} className="w-10 h-10" />
           </a>
         </div>
       </div>
