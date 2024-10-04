@@ -58,6 +58,106 @@ export default function About() {
           animate={{ width: "100%" }}
           transition={{ duration: 1 }}
         ></motion.div>
+
+        <p className="text-center mt-8 mb-4 text-xl font-semibold">Hobbies</p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <a
+            href="https://mikemachage.tech"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://github.com/jrohitofficial/jrohitofficial/blob/master/Man%20Bouncing%20Ball%20Medium-Dark%20Skin%20Tone.png?raw=true"
+              alt="Basketball"
+              width="40"
+              height="40"
+            />
+          </a>
+          <a
+            href="https://mikemachage.tech"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://raw.githubusercontent.com/jrohitofficial/jrohitofficial/master/Soccer%20Ball.webp"
+              alt="Soccer"
+              width="40"
+              height="40"
+            />
+          </a>
+          <a
+            href="https://mikemachage.tech"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://raw.githubusercontent.com/jrohitofficial/jrohitofficial/master/Video%20Game.webp"
+              alt="Video Games"
+              width="40"
+              height="40"
+            />
+          </a>
+          <a
+            href="https://mikemachage.tech"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://github.com/jrohitofficial/jrohitofficial/blob/master/Musical%20Notes.png?raw=true"
+              alt="Music"
+              width="40"
+              height="40"
+            />
+          </a>
+          <a
+            href="https://mikemachage.tech"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://github.com/jrohitofficial/jrohitofficial/blob/master/Man%20Technologist%20Medium-Dark%20Skin%20Tone.png?raw=true"
+              alt="Technology"
+              width="40"
+              height="40"
+            />
+          </a>
+          <a
+            href="https://mikemachage.tech"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://github.com/jrohitofficial/jrohitofficial/blob/master/globe.gif?raw=true"
+              alt="Travel"
+              width="40"
+              height="40"
+            />
+          </a>
+          <a
+            href="https://mikemachage.tech"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://github.com/jrohitofficial/jrohitofficial/blob/master/book.gif?raw=true"
+              alt="Reading"
+              width="40"
+              height="40"
+            />
+          </a>
+          <a
+            href="https://mikemachage.tech"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://github.com/jrohitofficial/jrohitofficial/blob/master/music.gif?raw=true"
+              alt="Music"
+              width="40"
+              height="40"
+            />
+          </a>
+        </div>
       </div>
     </div>
   );

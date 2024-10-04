@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
-import { Github, Coffee, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const projects = [
   {
@@ -44,6 +44,74 @@ const projects = [
   },
 ];
 
+const techStack = [
+  {
+    name: "Android",
+    url: "https://developer.android.com",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original-wordmark.svg",
+  },
+  {
+    name: "TypeScript",
+    url: "https://www.typescriptlang.org/",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
+  },
+  {
+    name: "CSS3",
+    url: "https://www.w3schools.com/css/",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg",
+  },
+  {
+    name: "Django",
+    url: "https://www.djangoproject.com/",
+    icon: "https://cdn.worldvectorlogo.com/logos/django.svg",
+  },
+  {
+    name: "HTML5",
+    url: "https://www.w3.org/html/",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg",
+  },
+  {
+    name: "JavaScript",
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
+  },
+  {
+    name: "Python",
+    url: "https://www.python.org",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
+  },
+  {
+    name: "React",
+    url: "https://reactjs.org/",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg",
+  },
+  {
+    name: "Git",
+    url: "https://git-scm.com/",
+    icon: "https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg",
+  },
+  {
+    name: "Linux",
+    url: "https://www.linux.org",
+    icon: "https://seeklogo.com/images/K/kali-linux-logo-93027C57BD-seeklogo.com.png",
+  },
+  {
+    name: "Next.js",
+    url: "https://nextjs.org/",
+    icon: "https://logowik.com/content/uploads/images/nextjs7685.logowik.com.webp",
+  },
+  {
+    name: "Dart",
+    url: "https://dart.dev/",
+    icon: "https://assets.stickpng.com/images/5847f289cef1014c0b5e486b.png",
+  },
+  {
+    name: "Flutter",
+    url: "https://flutter.dev/",
+    icon: "https://cdn5.vectorstock.com/i/1000x1000/19/34/flutter-framework-logo-emblem-vector-44491934.jpg",
+  },
+];
+
 export default function Projects() {
   const [currentProject, setCurrentProject] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -67,7 +135,7 @@ export default function Projects() {
           transition={{ duration: 1 }}
         ></motion.div>
         <h1 className="text-2xl md:text-3xl font-bold mb-8 text-center">
-          My Recent Projects
+          Recent Projects
         </h1>
         <div ref={carouselRef} className="relative overflow-hidden w-full mb-8">
           <div
@@ -79,7 +147,7 @@ export default function Projects() {
                 <motion.div
                   className="relative bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden h-[350px] group"
                   initial={{ scale: 1 }}
-                  animate={{ scale: 1.1 }} // Zoom on load
+                  animate={{ scale: 1.1 }}
                   transition={{ duration: 1 }}
                 >
                   <Image
@@ -89,7 +157,6 @@ export default function Projects() {
                     objectFit="cover"
                     className="absolute inset-0"
                   />
-                  {/* Overlay with text (always visible, with smooth transition on load) */}
                   <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex flex-col justify-center items-center text-center p-4">
                     <h2 className="text-xl font-bold mb-2 text-white">
                       {project.title}
@@ -135,32 +202,50 @@ export default function Projects() {
             <ChevronRight className="w-6 h-6" />
           </button>
         </div>
-        <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-24 mb-8">
-          <a
-            href="https://github.com/sponsors/machage9603"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-full transition-colors duration-300 text-sm md:text-base"
-          >
-            <Github className="w-5 h-5 mr-2" />
-            Sponsor on GitHub
-          </a>
-          <a
-            href="https://www.buymeacoffee.com/machage"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-gray-800 rounded-full transition-colors duration-300 text-sm md:text-base"
-          >
-            <Coffee className="w-5 h-5 mr-2" />
-            Buy Me a Coffee
-          </a>
-        </div>
         <motion.div
           className="w-full h-px bg-[#2B2B2B] dark:bg-white mt-8"
           initial={{ width: 0 }}
           animate={{ width: "100%" }}
           transition={{ duration: 1 }}
         ></motion.div>
+        <div className="flex flex-col items-center mt-8">
+          <h2 className="text-xl font-bold mb-4">Tech Stack</h2>
+          <motion.div
+            className="flex flex-wrap justify-center gap-4"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  delayChildren: 0.3,
+                  staggerChildren: 0.1,
+                },
+              },
+            }}
+          >
+            {techStack.map((tech, index) => (
+              <motion.a
+                key={index}
+                href={tech.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                variants={{
+                  hidden: { y: 20, opacity: 0 },
+                  visible: {
+                    y: 0,
+                    opacity: 1,
+                  },
+                }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <img src={tech.icon} alt={tech.name} width="40" height="40" />
+              </motion.a>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </div>
   );

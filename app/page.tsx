@@ -16,6 +16,33 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 // Prevent Font Awesome from adding its CSS since we did it manually above
 config.autoAddCss = false;
 
+const socialIcons = [
+  {
+    icon: faGithub,
+    href: "https://github.com/machage9603",
+    label: "GitHub",
+    color: "text-[#24292e]",
+  },
+  {
+    icon: faTwitter,
+    href: "https://twitter.com/sermachage",
+    label: "Twitter",
+    color: "text-[#1DA1F2]",
+  },
+  {
+    icon: faLinkedin,
+    href: "https://www.linkedin.com/in/mike-machage/",
+    label: "LinkedIn",
+    color: "text-[#0077B5]",
+  },
+  {
+    icon: faMedium,
+    href: "https://medium.com/@machage_",
+    label: "Medium",
+    color: "text-[#00AB6C]",
+  },
+];
+
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center p-4 min-h-screen">
@@ -36,51 +63,54 @@ export default function Home() {
         />
         <h1 className="text-3xl font-bold mb-2">MIKE MACHAGE</h1>
         <div className="w-16 h-px bg-[#2B2B2B] dark:bg-white my-4"></div>
-        <h2 className="text-lg mb-8">SOFTWARE ENGINEER</h2>
+        <h2 className="text-lg mb-8">
+          <a href="https://github.com/machage9603/readme-typing-svg">
+            <img src="https://readme-typing-svg.demolab.com/?lines=SOFTWARE%20ENGINEER%20;UI/UX%20DESIGNER%20;%20BACKEND&font=fira%20Code&center=true&width=440&height=35&color=#2B2B2B&vCenter=true&pause=1000&size=22" />
+          </a>
+        </h2>
         <motion.div
           className="w-full h-px bg-[#2B2B2B] dark:bg-white mb-8"
           initial={{ width: 0 }}
           animate={{ width: "100%" }}
           transition={{ duration: 1 }}
         ></motion.div>
-        <div className="flex space-x-8">
-          <a
-            href="https://github.com/machage9603"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="text-[#2B2B2B] dark:text-white hover:text-[#24292e] dark:hover:text-[#ebebeb] transition-colors duration-300"
-          >
-            <FontAwesomeIcon icon={faGithub} className="w-10 h-10" />
-          </a>
-          <a
-            href="https://twitter.com/sermachage"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Twitter"
-            className="text-[#1DA1F2] hover:text-[#0c85d0] transition-colors duration-300"
-          >
-            <FontAwesomeIcon icon={faTwitter} className="w-10 h-10" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/mike-machage/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="text-[#0077B5] hover:text-[#005885] transition-colors duration-300"
-          >
-            <FontAwesomeIcon icon={faLinkedin} className="w-10 h-10" />
-          </a>
-          <a
-            href="https://medium.com/@machage_"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="text-[#0077B5] hover:text-[#005885] transition-colors duration-300"
-          >
-            <FontAwesomeIcon icon={faMedium} className="w-10 h-10" />
-          </a>
-        </div>
+        <motion.div
+          className="flex space-x-8"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                delayChildren: 0.3,
+                staggerChildren: 0.1,
+              },
+            },
+          }}
+        >
+          {socialIcons.map((social, index) => (
+            <motion.a
+              key={index}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.label}
+              className={`${social.color} hover:opacity-80 transition-colors duration-300`}
+              variants={{
+                hidden: { y: 20, opacity: 0 },
+                visible: {
+                  y: 0,
+                  opacity: 1,
+                },
+              }}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <FontAwesomeIcon icon={social.icon} className="w-12 h-12" />
+            </motion.a>
+          ))}
+        </motion.div>
       </div>
     </div>
   );
