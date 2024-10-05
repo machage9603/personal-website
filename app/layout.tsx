@@ -1,7 +1,10 @@
 "use client";
+
 import { Inter } from "next/font/google";
 import "./ui/globals.css";
 import { useEffect } from "react";
+import { NextUIProvider } from "@nextui-org/react";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,13 +31,21 @@ export default function RootLayout({
   }, []);
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} min-h-screen flex flex-col bg-[#F4EDE4] dark:bg-[#2D3748] text-[#2B2B2B] dark:text-white transition-colors duration-300`}
+        className={`${inter.className} min-h-screen flex flex-col transition-colors duration-300`}
       >
-        <main className="flex-grow flex flex-col items-center justify-center">
-          {children}
-        </main>
+        <NextUIProvider>
+          <NextThemesProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+          >
+            <main className="flex-grow flex flex-col items-center justify-center pt-16">
+              {children}
+            </main>
+          </NextThemesProvider>
+        </NextUIProvider>
       </body>
     </html>
   );
