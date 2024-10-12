@@ -9,7 +9,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "Glare & Glitz",
+    title: "IN DEVELOPMENT",
     description: "An eyewear E-commerce store.",
     demo: "https://adornment-ke.vercel.app/",
     github: "https://github.com/machage9603/adornment-ke",
