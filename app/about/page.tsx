@@ -32,7 +32,7 @@ export default function About() {
 
         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8 mb-8">
           <motion.a
-            href="https://docs.google.com/document/d/1TdKgNx0wQALZKbx1PRxCwK97pKg_qGgz-TAVFL33zRk/edit?usp=sharing"
+            href="/resumeupdate.pdf"
             download
             className="flex items-center justify-center px-6 py-3 text-current border border-current rounded-full transition-all duration-300 hover:outline hover:outline-2 hover:outline-blue-300 focus:outline focus:outline-2 focus:outline-blue-600 active:outline active:outline-2 active:outline-blue-700"
             whileHover={{ scale: 1.05 }}
