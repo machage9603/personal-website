@@ -5,6 +5,7 @@ import "./ui/globals.css";
 import { useEffect } from "react";
 import { NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -43,6 +44,7 @@ export default function RootLayout({
           >
             <main className="flex-grow flex flex-col items-center justify-center pt-16">
               {children}
+              <Analytics />
             </main>
           </NextThemesProvider>
         </NextUIProvider>
