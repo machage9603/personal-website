@@ -34,6 +34,9 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+      <link rel="icon" href="/favicon.ico" sizes="any" type="image/x-icon" />
+      </head>
       <body
         className={`${inter.className} min-h-screen flex flex-col transition-colors duration-300`}
       >
