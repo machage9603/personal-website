@@ -41,16 +41,6 @@ export default function About() {
             <Download className="w-5 h-5 mr-2" />
             My CV
           </motion.a>
-          <motion.a
-            href="/CS50x.pdf"
-            download
-            className="flex items-center justify-center px-6 py-3 text-current border border-current rounded-full transition-all duration-300 hover:outline hover:outline-2 hover:outline-blue-300 focus:outline focus:outline-2 focus:outline-blue-600 active:outline active:outline-2 active:outline-blue-700"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Download className="w-5 h-5 mr-2" />
-            Certifications
-          </motion.a>
         </div>
         <motion.div
           className="w-full h-px bg-[#2B2B2B] dark:bg-white mt-8"
