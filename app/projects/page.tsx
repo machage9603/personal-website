@@ -11,7 +11,7 @@ const projects = [
     id: 1,
     title: "OmariShot",
     description: "An photographer's portfolio.",
-    demo: "https://#/",
+    demo: "https://omarishot.vercel.app/",
     github: "https://github.com/machage9603/tresses",
     image: "/tresses.png?height=400&width=600",
   },
