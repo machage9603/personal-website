@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import Navbar from "./components/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -54,7 +53,7 @@ export default function Home() {
           animate={{ width: "100%" }}
           transition={{ duration: 1 }}
         ></motion.div>
-        <Image
+        <img
           src="/dp.jpeg"
           alt="Mike Machage"
           width={150}
@@ -65,10 +64,7 @@ export default function Home() {
         <div className="w-16 h-px bg-[#2B2B2B] dark:bg-white my-4"></div>
         <h2 className="text-lg mb-8">
           <a href="https://github.com/machage9603/readme-typing-svg">
-            <Image
-              src="https://readme-typing-svg.demolab.com/?lines=SOFTWARE%20ENGINEER%20;UI/UX%20DESIGNER%20;%20BACKEND&font=fira%20Code&center=true&width=440&height=35&color=#2B2B2B&vCenter=true&pause=1000&size=22"
-              alt={""}
-            />
+            <img src="https://readme-typing-svg.demolab.com/?lines=SOFTWARE%20ENGINEER%20;WEB%20DEVELOPER%20;%20WEB%20DESIGNER%20;%20TECHNICAL%20WRITER&font=fira%20Code&center=true&width=440&height=35&color=#2B2B2B&vCenter=true&pause=1000&size=22" />
           </a>
         </h2>
         <motion.div
