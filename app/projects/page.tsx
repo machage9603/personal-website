@@ -9,6 +9,14 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const projects = [
   {
     id: 1,
+    title: "OmariShot",
+    description: "An photographer's portfolio.",
+    demo: "https://omarishot.vercel.app/",
+    github: "https://github.com/machage9603/tresses",
+    image: "/tresses.png?height=400&width=600",
+  },
+  {
+    id: 1,
     title: "IN DEVELOPMENT",
     description: "An eyewear E-commerce store.",
     demo: "https://adornment-ke.vercel.app/",
