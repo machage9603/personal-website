@@ -65,7 +65,10 @@ export default function Home() {
         <div className="w-16 h-px bg-[#2B2B2B] dark:bg-white my-4"></div>
         <h2 className="text-lg mb-8">
           <a href="https://github.com/machage9603/readme-typing-svg">
-            <image src="https://readme-typing-svg.demolab.com/?lines=SOFTWARE%20ENGINEER%20;UI/UX%20DESIGNER%20;%20BACKEND&font=fira%20Code&center=true&width=440&height=35&color=#2B2B2B&vCenter=true&pause=1000&size=22" />
+            <Image
+              src="https://readme-typing-svg.demolab.com/?lines=SOFTWARE%20ENGINEER%20;UI/UX%20DESIGNER%20;%20BACKEND&font=fira%20Code&center=true&width=440&height=35&color=#2B2B2B&vCenter=true&pause=1000&size=22"
+              alt={""}
+            />
           </a>
         </h2>
         <motion.div

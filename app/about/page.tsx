@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { Download } from "lucide-react";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
@@ -56,7 +56,7 @@ export default function About() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <image
+            <Image
               src="https://github.com/jrohitofficial/jrohitofficial/blob/master/Man%20Bouncing%20Ball%20Medium-Dark%20Skin%20Tone.png?raw=true"
               alt="Basketball"
               width="40"
@@ -68,7 +68,7 @@ export default function About() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <image
+            <Image
               src="https://raw.githubusercontent.com/jrohitofficial/jrohitofficial/master/Soccer%20Ball.webp"
               alt="Soccer"
               width="40"
@@ -80,7 +80,7 @@ export default function About() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <image
+            <Image
               src="https://raw.githubusercontent.com/jrohitofficial/jrohitofficial/master/Video%20Game.webp"
               alt="Video Games"
               width="40"
@@ -92,7 +92,7 @@ export default function About() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <image
+            <Image
               src="https://github.com/jrohitofficial/jrohitofficial/blob/master/Musical%20Notes.png?raw=true"
               alt="Music"
               width="40"
@@ -104,7 +104,7 @@ export default function About() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <image
+            <Image
               src="https://github.com/jrohitofficial/jrohitofficial/blob/master/Man%20Technologist%20Medium-Dark%20Skin%20Tone.png?raw=true"
               alt="Technology"
               width="40"
@@ -116,7 +116,7 @@ export default function About() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <image
+            <Image
               src="https://github.com/jrohitofficial/jrohitofficial/blob/master/globe.gif?raw=true"
               alt="Travel"
               width="40"
@@ -128,7 +128,7 @@ export default function About() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <image
+            <Image
               src="https://github.com/jrohitofficial/jrohitofficial/blob/master/book.gif?raw=true"
               alt="Reading"
               width="40"
@@ -140,7 +140,7 @@ export default function About() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <image
+            <Image
               src="https://github.com/jrohitofficial/jrohitofficial/blob/master/music.gif?raw=true"
               alt="Music"
               width="40"
