@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   const siteName = "Mike Machage";
   const siteDescription =
-    "Mike Machage's portfolio containing his projects, blog posts, resume and contact information. Full Stack Software Engineer specializing in UI/UX design and web development.";
+    "Mike Machage's portfolio containing his projects, blog posts, resume and contact information.";
   const siteUrl = "https://mikemachage.tech";
 
   return (
@@ -29,7 +29,7 @@ export default function RootLayout({
         <meta name="author" content="Mike Machage" />
         <meta
           name="keywords"
-          content="Mike Machage, Software Engineer, Web Developer, UI/UX Designer, Full Stack developer, Javascript, Next.js, TypeScript, Portfolio, Kenya Developer"
+          content="Mike Machage, Software Engineer, Web Developer, UI/UX Designer, Full Stack developer, Javascript, Next.js, TypeScript, Portfolio, Kenya Developer, Kenya Software Engineer"
         />
 
         {/* OpenGraph Meta Tags */}
