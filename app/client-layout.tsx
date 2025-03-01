@@ -10,7 +10,6 @@ export default function ClientLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const siteName = "Mike Machage";
   const siteDescription = "Mike Machage's portfolio containing his projects, blog posts, resume and contact information.";
   const siteUrl = "https://mikemachage.tech";
 
