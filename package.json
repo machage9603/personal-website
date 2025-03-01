@@ -10,7 +10,7 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
-    "@formspree/react": "^2.5.1",
+    "@formspree/react": "^2.5.4",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
@@ -23,8 +23,8 @@
     "next-sitemap": "^4.2.3",
     "next-theme": "^0.1.5",
     "next-themes": "^0.3.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sharp": "^0.33.5"
   },
   "devDependencies": {
