@@ -99,11 +99,6 @@ const techStack = [
     icon: "https://logowik.com/content/uploads/images/nextjs7685.logowik.com.webp",
   },
   {
-    name: "Dart",
-    url: "https://dart.dev/",
-    icon: "https://assets.stickpng.com/images/5847f289cef1014c0b5e486b.png",
-  },
-  {
     name: "Flutter",
     url: "https://flutter.dev/",
     icon: "https://cdn5.vectorstock.com/i/1000x1000/19/34/flutter-framework-logo-emblem-vector-44491934.jpg",
