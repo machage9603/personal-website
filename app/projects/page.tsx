@@ -10,13 +10,13 @@ const projects = [
   {
     id: 1,
     title: "OmariShot",
-    description: "An photographer's portfolio.",
+    description: "A photographer's portfolio temp.",
     demo: "https://omarishot.vercel.app/",
     github: "https://github.com/machage9603/tresses",
     image: "/tresses.png?height=400&width=600",
   },
   {
-    id: 1,
+    id: 2,
     title: "IN DEVELOPMENT",
     description: "An eyewear E-commerce store.",
     demo: "https://adornment-ke.vercel.app/",
@@ -24,7 +24,7 @@ const projects = [
     image: "/adornment.png?height=400&width=600",
   },
   {
-    id: 2,
+    id: 3,
     title: "READMEaker",
     description:
       "A README editor/generator. This is an open-source project that helps developers create README files with assistance of ready made section templates and AI.",
@@ -33,7 +33,7 @@ const projects = [
     image: "/readmeaker.png?height=400&width=600",
   },
   {
-    id: 3,
+    id: 4,
     title: "Connect 4",
     description:
       "Connect 4 game with two players. This classic game implementation allows two players to compete against each other in a strategic battle to connect four of their pieces in a row.",
@@ -42,7 +42,7 @@ const projects = [
     image: "/connectfour.png?height=400&width=600",
   },
   {
-    id: 4,
+    id: 5,
     title: "Portfolio",
     description:
       "My personal portfolio website. Built with Next.js, TypeScript, and Framer Motion.",
@@ -54,11 +54,6 @@ const projects = [
 
 const techStack = [
   {
-    name: "Android",
-    url: "https://developer.android.com",
-    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original-wordmark.svg",
-  },
-  {
     name: "TypeScript",
     url: "https://www.typescriptlang.org/",
     icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
@@ -67,11 +62,6 @@ const techStack = [
     name: "CSS3",
     url: "https://www.w3schools.com/css/",
     icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg",
-  },
-  {
-    name: "Django",
-    url: "https://www.djangoproject.com/",
-    icon: "https://cdn.worldvectorlogo.com/logos/django.svg",
   },
   {
     name: "HTML5",
