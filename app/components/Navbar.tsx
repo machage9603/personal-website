@@ -28,12 +28,12 @@ export default function Navbar() {
 
   // Animation variants for mobile menu
   const menuVariants = {
-    open: { opacity: 1, y: 0, transition: { duration: 0.3 } },
-    closed: { opacity: 0, y: -20, transition: { duration: 0.3 } },
+    open: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
+    closed: { opacity: 0, scale: 0.95, transition: { duration: 0.3 } },
   };
 
   return (
-    <nav className="w-full max-w-2xl mb-12 px-4">
+    <nav className="w-full max-w-2xl mb-12 px-4 relative">
       <div className="flex justify-between items-center">
         {/* Mobile Menu Toggle */}
         <button
@@ -76,20 +76,25 @@ export default function Navbar() {
         </button>
       </div>
 
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-40" onClick={toggleMenu}></div>
+      )}
+
       {/* Mobile Menu */}
       <motion.ul
         className={`${
           isMenuOpen ? "block" : "hidden"
-        } lg:hidden flex flex-col items-center gap-4 mt-4 bg-gray-50 dark:bg-gray-800 p-4 rounded-lg`}
+        } lg:hidden flex flex-col items-center gap-4 fixed left-4 right-4 top-80 bg-gray-10 dark:bg-gray-20 p-6 rounded-lg shadow-lg z-50 max-w-2xl mx-auto`}
         initial={false}
         animate={isMenuOpen ? "open" : "closed"}
         variants={menuVariants}
       >
         {navItems.map(({ href, label }) => (
-          <li key={href}>
+          <li key={href} className="w-full">
             <Link
               href={href}
-              className={`w-full text-center px-6 py-2 rounded-full text-gray-700 dark:text-gray-200 transition-all duration-200 ${
+              className={`block text-center px-6 py-2 rounded-full text-gray-700 dark:text-gray-200 transition-all duration-200 ${
                 pathname === href
                   ? "bg-blue-500 text-white"
                   : "hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-blue-500 focus:ring-2 focus:ring-blue-500"
