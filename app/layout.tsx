@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./ui/globals.css";
 import { metadata } from "./metadata";
 import ClientLayout from "./client-layout";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ClientLayout>{children}</ClientLayout>
+        <ClientLayout>
+          {children}
+        <SpeedInsights />
+        </ClientLayout>
       </body>
     </html>
   );
