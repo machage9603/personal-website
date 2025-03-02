@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
-import { useState } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -12,11 +12,13 @@ export default function Contact() {
   });
   const [status, setStatus] = useState(""); // Added for submission feedback
 
-  const handleChange = (e: { target: { name: any; value: any; }; }) => {
+  // Fixed typing with proper ChangeEvent type
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  // Fixed typing with proper FormEvent type
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("Sending...");
 
