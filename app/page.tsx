@@ -74,7 +74,7 @@ export default function Home() {
           transition={{ duration: 1 }}
         ></motion.div>
         <motion.div
-          className="flex space-x-8"
+          className="flex space-x-16"
           initial="hidden"
           animate="visible"
           variants={{
@@ -103,10 +103,10 @@ export default function Home() {
                   opacity: 1,
                 },
               }}
-              whileHover={{ scale: 1.2 }}
+              whileHover={{ scale: 1.4 }}
               whileTap={{ scale: 0.9 }}
             >
-              <FontAwesomeIcon icon={social.icon} className="w-12 h-12" />
+              <FontAwesomeIcon icon={social.icon} className="w-18 h-18" />
             </motion.a>
           ))}
         </motion.div>
