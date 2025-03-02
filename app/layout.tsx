@@ -20,8 +20,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <ClientLayout>
           {children}
-        <SpeedInsights />
         </ClientLayout>
+        <SpeedInsights />
       </body>
     </html>
   );
