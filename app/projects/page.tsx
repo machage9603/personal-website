@@ -9,46 +9,48 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "OmariShot",
-    description: "A photographer's portfolio temp.",
+    title: "File Manager",
+    description: "A robust backend API for a file management system built with Node.js. This project implements user authentication, file upload/download functionality, permissions management, and image thumbnail generation.",
     demo: "https://omarishot.vercel.app/",
-    github: "https://github.com/machage9603/tresses",
-    image: "/tresses.png?height=400&width=600",
+    github: "https://github.com/machage9603/files_manager",
+    image: "/files.png?height=400&width=600",
   },
   {
     id: 2,
-    title: "IN DEVELOPMENT",
-    description: "An eyewear E-commerce store.",
-    demo: "https://adornment-ke.vercel.app/",
-    github: "https://github.com/machage9603/adornment-ke",
-    image: "/adornment.png?height=400&width=600",
+    title: "KaziPro",
+    description: "A full-stack project management application built with Node.js, Express, MongoDB, and Next.js. This platform allows teams to collaborate, manage projects, and track tasks efficiently.",
+    demo: "https://omarishot.app",
+    image: "/kazipro.png?height=400&width=600",
   },
   {
     id: 3,
+    title: "OmariShoots",
+    description: "A photographer's portfolio temp.",
+    demo: "https://omarishot.vercel.app/",
+    image: "/tresses.png?height=400&width=600",
+  },
+  {
+    id: 4,
+    title: "Tresses Eyewear",
+    description: "An eyewear E-commerce store.",
+    demo: "https://adornment-ke.vercel.app/",
+    image: "/adornment.png?height=400&width=600",
+  },
+  {
+    id: 5,
     title: "READMEaker",
     description:
       "A README editor/generator. This is an open-source project that helps developers create README files with assistance of ready made section templates and AI.",
     demo: "https://readme.works/",
-    github: "https://github.com/machage9603/readmeaker",
     image: "/readmeaker.png?height=400&width=600",
   },
   {
-    id: 4,
+    id: 6,
     title: "Connect 4",
     description:
       "Connect 4 game with two players. This classic game implementation allows two players to compete against each other in a strategic battle to connect four of their pieces in a row.",
     demo: "https://react-project-rouge-kappa.vercel.app/",
-    github: "https://github.com/machage9603/connect-four",
     image: "/connectfour.png?height=400&width=600",
-  },
-  {
-    id: 5,
-    title: "Portfolio",
-    description:
-      "My personal portfolio website. Built with Next.js, TypeScript, and Framer Motion.",
-    demo: "https://mikemachage.tech",
-    github: "https://github.com/machage9603/personal-website",
-    image: "/portfolio.png?height=400&width=600",
   },
 ];
 
