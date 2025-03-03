@@ -67,7 +67,10 @@ export default function Home() {
           <a href="https://github.com/machage9603/readme-typing-svg">
             <Image
             src="https://readme-typing-svg.demolab.com/?lines=SOFTWARE%20ENGINEER%20;WEB%20DEVELOPER%20;%20WEB%20DESIGNER%20;%20TECHNICAL%20WRITER&font=fira%20Code&center=true&width=440&height=35&color=#2B2B2B&vCenter=true&pause=1000&size=22"
-            alt="bio"
+            alt="typing svg"
+            width={440}
+            height={35}
+            unoptimized
             />
           </a>
         </h2>
