@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import { Phone, Mail } from "lucide-react";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -17,16 +18,10 @@ export default function About() {
         ></motion.div>
         <h1 className="text-3xl font-bold mb-6">About Me</h1>
         <p className="mb-4">
-        I’m Mike Machage, a top-tier software engineer passionate about turning bold ideas into reality with modern technologies like JavaScript Powerhouses: Next.js, React, Node.js, TypeScript, Python,AWS, Kubernetes, Docker,Flutter
-        </p>
-        <p className="mb-4">
-        My process is fast and founder-friendly: from first contact to coding in just 48 hours, I eliminate hiring headaches and accelerate your project—whether it’s a sleek frontend, robust backend, or a 30-day MVP.
+        I’m Mike Machage, a top-tier software engineer passionate about turning bold ideas into reality with modern JavaScript Powerhouses like: Next.js, React, Node.js & TypeScript.
         </p>
         <p className="mb-4">
         My process is fast and founder-friendly: from first contact to coding in just 48 hours, I eliminate hiring bottlenecks and accelerate your project—whether it’s a sleek frontend, robust backend, or a 30-day MVP.
-        </p>
-        <p className="mb-4">
-        My mission? To deliver Silicon Valley-grade web and software solutions—scalable, efficient, and user-focused—at half the cost. I empower startups and businesses globally by saving you up to 50% compared to traditional agencies, all while maintaining top-tier quality.
         </p>
         <p className="mb-4">
         What sets me apart is my commitment to partnership. I don’t just code—I strategize, lead, and take ownership, ensuring your solution evolves with your needs. With a risk-free guarantee and 30 days of free post-launch support.
@@ -49,7 +44,7 @@ export default function About() {
             <span className="absolute inset-0 -top-1/2 w-1/4 bg-white/20 transform -skew-x-12 transition-all duration-300 group-hover:left-full -left-1/4"></span>
           </motion.a>
 
-          {/* Keeping the email button as is for this example */}
+          {/* email button */}
           <motion.a
             href="mailto:mikemachage@gmail.com"
             className="flex items-center justify-center space-x-2 px-6 py-3 text-current border border-current rounded-full transition-all duration-300 hover:bg-blue-500 hover:border-blue-500 hover:text-white active:bg-[#DB4437] active:border-[#DB4437] w-full sm:w-auto"
@@ -70,56 +65,56 @@ export default function About() {
         <p className="text-center mt-8 mb-4 text-xl font-semibold">Recreation</p>
         <div className="flex flex-wrap justify-center gap-4">
 
-            <img
+            <Image
               src="https://github.com/jrohitofficial/jrohitofficial/blob/master/Man%20Bouncing%20Ball%20Medium-Dark%20Skin%20Tone.png?raw=true"
               alt="Basketball"
               width="40"
               height="40"
             />
 
-            <img
+            <Image
               src="https://raw.githubusercontent.com/jrohitofficial/jrohitofficial/master/Soccer%20Ball.webp"
               alt="Soccer"
               width="40"
               height="40"
             />
 
-            <img
+            <Image
               src="https://raw.githubusercontent.com/jrohitofficial/jrohitofficial/master/Video%20Game.webp"
               alt="Video Games"
               width="40"
               height="40"
             />
 
-            <img
+            <Image
               src="https://github.com/jrohitofficial/jrohitofficial/blob/master/Musical%20Notes.png?raw=true"
               alt="Music"
               width="40"
               height="40"
             />
 
-            <img
+            <Image
               src="https://github.com/jrohitofficial/jrohitofficial/blob/master/Man%20Technologist%20Medium-Dark%20Skin%20Tone.png?raw=true"
               alt="Technology"
               width="40"
               height="40"
             />
 
-            <img
+            <Image
               src="https://github.com/jrohitofficial/jrohitofficial/blob/master/globe.gif?raw=true"
               alt="Travel"
               width="40"
               height="40"
             />
 
-            <img
+            <Image
               src="https://github.com/jrohitofficial/jrohitofficial/blob/master/book.gif?raw=true"
               alt="Reading"
               width="40"
               height="40"
             />
 
-            <img
+            <Image
               src="https://github.com/jrohitofficial/jrohitofficial/blob/master/music.gif?raw=true"
               alt="Music"
               width="40"
