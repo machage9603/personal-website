@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import Image from "next/image";
 
 // Prevent Font Awesome from adding its CSS since we did it manually above
 config.autoAddCss = false;
@@ -53,7 +54,7 @@ export default function Home() {
           animate={{ width: "100%" }}
           transition={{ duration: 1 }}
         ></motion.div>
-        <img
+        <Image
           src="/profile.jpg"
           alt="Mike Machage"
           width={150}
@@ -64,7 +65,10 @@ export default function Home() {
         <div className="w-16 h-px bg-[#2B2B2B] dark:bg-white my-4"></div>
         <h2 className="text-lg mb-8">
           <a href="https://github.com/machage9603/readme-typing-svg">
-            <img src="https://readme-typing-svg.demolab.com/?lines=SOFTWARE%20ENGINEER%20;WEB%20DEVELOPER%20;%20WEB%20DESIGNER%20;%20TECHNICAL%20WRITER&font=fira%20Code&center=true&width=440&height=35&color=#2B2B2B&vCenter=true&pause=1000&size=22" />
+            <Image
+            src="https://readme-typing-svg.demolab.com/?lines=SOFTWARE%20ENGINEER%20;WEB%20DEVELOPER%20;%20WEB%20DESIGNER%20;%20TECHNICAL%20WRITER&font=fira%20Code&center=true&width=440&height=35&color=#2B2B2B&vCenter=true&pause=1000&size=22"
+            alt="bio"
+            />
           </a>
         </h2>
         <motion.div
