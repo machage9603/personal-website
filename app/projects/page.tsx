@@ -234,7 +234,7 @@ export default function Projects() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <img src={tech.icon} alt={tech.name} width="40" height="40" />
+                <Image src={tech.icon} alt={tech.name} width="40" height="40" />
               </motion.a>
             ))}
           </motion.div>

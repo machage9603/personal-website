@@ -70,7 +70,6 @@ export default function Home() {
             alt="typing svg"
             width={440}
             height={35}
-            unoptimized
             />
           </a>
         </h2>
