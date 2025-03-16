@@ -22,8 +22,6 @@ export default function Contact() {
     e.preventDefault();
     setStatus("Sending...");
 
-    // form submission logic to send email:
-    /*
     try {
       const response = await fetch('/api/send-email', {
         method: 'POST',
@@ -57,9 +55,7 @@ export default function Contact() {
       console.error('Error sending email:', error);
       setStatus('An error occurred. Please try again later.');
     }
-    */
 
-    // For demonstration, it will work add API
     console.log(formData);
     setTimeout(() => {
       setStatus("Message sent successfully!");

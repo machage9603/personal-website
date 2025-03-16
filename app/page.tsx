@@ -12,6 +12,7 @@ import {
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import Image from "next/image";
+import TypedHeading from "./components/TypeHeading";
 
 // Prevent Font Awesome from adding its CSS since we did it manually above
 config.autoAddCss = false;
@@ -59,19 +60,22 @@ export default function Home() {
           alt="Mike Machage"
           width={150}
           height={150}
+          priority
           className="rounded-full mb-6"
         />
         <h1 className="text-3xl font-bold mb-2">MIKE MACHAGE</h1>
         <div className="w-16 h-px bg-[#2B2B2B] dark:bg-white my-4"></div>
         <h2 className="text-lg mb-8">
-          <a href="https://github.com/machage9603/readme-typing-svg">
-            <Image
-            src="https://readme-typing-svg.demolab.com/?lines=SOFTWARE%20ENGINEER%20;WEB%20DEVELOPER%20;%20WEB%20DESIGNER%20;%20TECHNICAL%20WRITER&font=fira%20Code&center=true&width=440&height=35&color=#2B2B2B&vCenter=true&pause=1000&size=22"
-            alt="typing svg"
-            width={440}
-            height={35}
-            />
-          </a>
+        <TypedHeading
+  lines={[
+    "SOFTWARE ENGINEER",
+    "DEVOPS ENGINEER",
+    "WEB DEVELOPMENT",
+    "TECHNICAL WRITER"
+  ]}
+  speed={100}
+  pause={1000}
+/>
         </h2>
         <motion.div
           className="w-full h-px bg-[#2B2B2B] dark:bg-white mb-8"
