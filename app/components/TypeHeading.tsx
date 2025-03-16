@@ -53,7 +53,7 @@ const TypedHeading: React.FC<TypedHeadingProps> = ({
       fontFamily: "'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
       fontWeight: 500,
       color: '#2563eb',
-      position: 'relative' as 'relative',
+      position: 'relative' as const,
       padding: '0.5rem 0',
     },
     cursor: {

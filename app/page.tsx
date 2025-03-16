@@ -70,7 +70,7 @@ export default function Home() {
   lines={[
     "SOFTWARE ENGINEER",
     "DEVOPS ENGINEER",
-    "WEB DEVELOPMENT",
+    "WEB DESIGN & DEVELOPMENT",
     "TECHNICAL WRITER"
   ]}
   speed={100}
