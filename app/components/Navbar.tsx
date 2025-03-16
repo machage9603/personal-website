@@ -3,14 +3,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
+import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
@@ -26,7 +24,6 @@ export default function Navbar() {
 
   if (!mounted) return null;
 
-  // Animation variants for mobile menu
   const menuVariants = {
     open: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
     closed: { opacity: 0, scale: 0.95, transition: { duration: 0.3 } },
@@ -38,7 +35,7 @@ export default function Navbar() {
         {/* Mobile Menu Toggle */}
         <button
           onClick={toggleMenu}
-          className="lg:hidden p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 focus:ring-2 focus:ring-blue-500 transition-colors duration-200"
+          className="lg:hidden p-2 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 hover:scale-110 transition-transform duration-200 focus:ring-2 focus:ring-blue-500"
           aria-label="Toggle menu"
         >
           {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -50,9 +47,9 @@ export default function Navbar() {
             <li key={href}>
               <Link
                 href={href}
-                className={`px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 transition-all duration-200 ${
+                className={`px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 transition-all duration-200 motion-safe:hover:scale-105 ${
                   pathname === href
-                    ? "bg-blue-500 text-white"
+                    ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white"
                     : "hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 focus:ring-2 focus:ring-blue-500"
                 }`}
               >
@@ -61,31 +58,21 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-
-        {/* Theme Toggle */}
-        <button
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
-          aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-        >
-          {theme === "dark" ? (
-            <Sun className="w-6 h-6 text-yellow-400" />
-          ) : (
-            <Moon className="w-6 h-6 text-gray-600" />
-          )}
-        </button>
       </div>
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-40" onClick={toggleMenu}></div>
+        <div
+          className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-40"
+          onClick={toggleMenu}
+        ></div>
       )}
 
       {/* Mobile Menu */}
       <motion.ul
         className={`${
           isMenuOpen ? "block" : "hidden"
-        } lg:hidden flex flex-col items-center gap-4 fixed left-4 right-4 top-80 bg-gray-10 dark:bg-gray-20 p-6 rounded-lg shadow-lg z-50 max-w-2xl mx-auto`}
+        } lg:hidden flex flex-col items-center gap-4 fixed inset-0 m-4 bg-gray-100/80 dark:bg-gray-900/80 backdrop-blur-md p-6 rounded-lg shadow-lg z-50`}
         initial={false}
         animate={isMenuOpen ? "open" : "closed"}
         variants={menuVariants}
@@ -94,9 +81,9 @@ export default function Navbar() {
           <li key={href} className="w-full">
             <Link
               href={href}
-              className={`block text-center px-6 py-2 rounded-full text-gray-700 dark:text-gray-200 transition-all duration-200 ${
+              className={`block text-center px-6 py-2 rounded-full text-gray-700 dark:text-gray-200 transition-all duration-200 motion-safe:hover:scale-105 ${
                 pathname === href
-                  ? "bg-blue-500 text-white"
+                  ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white"
                   : "hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-blue-500 focus:ring-2 focus:ring-blue-500"
               }`}
               onClick={() => setIsMenuOpen(false)}
