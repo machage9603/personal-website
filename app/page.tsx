@@ -56,7 +56,7 @@ export default function Home() {
           transition={{ duration: 1 }}
         ></motion.div>
         <Image
-          src="/profile.jpg"
+          src="/profile-removebg-preview.jpg"
           alt="Mike Machage"
           width={150}
           height={150}
