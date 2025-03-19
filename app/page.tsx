@@ -77,7 +77,7 @@ export default function Home() {
         <TypedHeading
   lines={[
     "SOFTWARE ENGINEER",
-    "DEVOPS ENGINEER",
+    "DEVOPS CONSULTANT",
     "WEB DESIGN & DEVELOPMENT",
     "TECHNICAL WRITER"
   ]}
