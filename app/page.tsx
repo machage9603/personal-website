@@ -13,6 +13,14 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import Image from "next/image";
 import TypedHeading from "./components/TypeHeading";
+import { Montserrat } from "next/font/google";
+
+// Initialize Montserrat font with light weight
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['300', '400', '700'],
+  variable: '--font-montserrat',
+});
 
 // Prevent Font Awesome from adding its CSS since we did it manually above
 config.autoAddCss = false;
@@ -46,7 +54,7 @@ const socialIcons = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center p-4 min-h-screen">
+    <div className={`flex flex-col items-center justify-center p-4 min-h-screen ${montserrat.className}`}>
       <Navbar />
       <div className="w-full max-w-md flex flex-col items-center">
         <motion.div
@@ -58,14 +66,14 @@ export default function Home() {
         <Image
           src="/profile-removebg-preview.jpg"
           alt="Mike Machage"
-          width={150}
-          height={150}
+          width={120}
+          height={120}
           priority
-          className="rounded-full mb-6"
+          className="rounded-full mb-8 grayscale hover:grayscale-0 transition-all duration-500"
         />
-        <h1 className="text-3xl font-bold mb-2">MIKE MACHAGE</h1>
+        <h1 className="text-3xl font-light tracking-wide mb-2">MIKE MACHAGE</h1>
         <div className="w-16 h-px bg-[#2B2B2B] dark:bg-white my-4"></div>
-        <h2 className="text-lg mb-8">
+        <h2 className="text-lg font-light mb-8">
         <TypedHeading
   lines={[
     "SOFTWARE ENGINEER",

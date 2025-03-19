@@ -1,10 +1,15 @@
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./ui/globals.css";
 import { metadata } from "./metadata";
 import ClientLayout from "./client-layout";
 
-
-const inter = Inter({ subsets: ["latin"] });
+// Replace Inter with Montserrat
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
 
 // Export the metadata
 export { metadata };
@@ -62,7 +67,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={`${montserrat.className} ${montserrat.variable}`}>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
