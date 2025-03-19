@@ -44,13 +44,14 @@ export default function Navbar() {
             <li key={href}>
               <Link
                 href={href}
-                className={`px-4 py-2 rounded-full text-gray-700 dark:text-gray-200 transition-all duration-200 motion-safe:hover:scale-105 ${
-                  pathname === href
-                    ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white"
-                    : "hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 focus:ring-2 focus:ring-blue-500"
-                }`}
+                className={`group relative px-4 py-2 text-gray-700 dark:text-gray-200 transition-all duration-200
+                  ${pathname === href ? "text-blue-500 dark:text-blue-400" : ""}`}
               >
-                {label}
+                <span className="relative z-10">{label}</span>
+                <span
+                  className={`absolute left-0 bottom-0 w-full h-0.5 bg-blue-400 dark:bg-blue-500 transition-transform duration-300 origin-left
+                    ${pathname === href ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`}
+                ></span>
               </Link>
             </li>
           ))}
@@ -97,14 +98,15 @@ export default function Navbar() {
             <li key={href} className="w-full">
               <Link
                 href={href}
-                className={`block text-center px-6 py-2 rounded-full text-gray-700 dark:text-gray-200 transition-all duration-200 motion-safe:hover:scale-105 ${
-                  pathname === href
-                    ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white"
-                    : "hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-blue-500 focus:ring-2 focus:ring-blue-500"
-                }`}
+                className={`group relative block text-center px-6 py-2 text-gray-700 dark:text-gray-200 transition-all duration-200
+                  ${pathname === href ? "text-blue-500 dark:text-blue-400" : ""}`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                {label}
+                <span className="relative z-10">{label}</span>
+                <span
+                  className={`absolute left-1/4 right-1/4 bottom-0 w-1/2 h-0.5 bg-blue-400 dark:bg-blue-500 transition-transform duration-300 origin-center
+                    ${pathname === href ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`}
+                ></span>
               </Link>
             </li>
           ))}
