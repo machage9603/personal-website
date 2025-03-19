@@ -119,23 +119,6 @@ const techStack = [
   },
 ];
 
-// Updated interface to include category
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  demo: string;
-  github: string | null;
-  image: string;
-  category: string;
-}
-
-interface TechItem {
-  name: string;
-  url: string;
-  icon: string;
-}
-
 export default function Projects() {
   const [currentProject, setCurrentProject] = useState(0);
 

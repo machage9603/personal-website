@@ -10,7 +10,7 @@ export default function Contact() {
     email: "",
     message: "",
   });
-  const [status, setStatus] = useState(""); // Added for submission feedback
+  const [status, setStatus] = useState(""); // submission feedback
 
   // Fixed typing with proper ChangeEvent type
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -29,7 +29,7 @@ export default function Contact() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          to: 'mikemachage@gmail.com', // Your email address
+          to: 'mikemachage@gmail.com',
           subject: `New Contact Form Message from ${formData.name}`,
           text: `
             Name: ${formData.name}
