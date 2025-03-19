@@ -1,56 +1,68 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+// Added category property to each project
 const projects = [
   {
     id: 1,
     title: "File Manager",
-    description: "A robust backend API for a file management system built with Node.js. This project implements user authentication, file upload/download functionality, permissions management, and image thumbnail generation.",
-    demo: "https://omarishot.vercel.app/",
+    description: "A robust backend API for a file management system. This project implements user authentication, file upload/download functionality, permissions management, and image thumbnail generation.",
+    demo: "null",
     github: "https://github.com/machage9603/files_manager",
-    image: "/files.png?height=400&width=600",
+    image: "/files.png",
+    category: "Backend"
   },
   {
     id: 2,
     title: "KaziPro",
-    description: "A full-stack project management application built with Node.js, Express, MongoDB, and Next.js. This platform allows teams to collaborate, manage projects, and track tasks efficiently.",
-    demo: "https://omarishot.app",
-    image: "/kazipro.png?height=400&width=600",
+    description: "A project management application. This platform allows teams to collaborate, manage projects, and track tasks efficiently.",
+    demo: "null",
+    github: null,
+    image: "/kazipro.png",
+    category: "Full Stack"
   },
   {
     id: 3,
-    title: "OmariShoots",
-    description: "A photographer's portfolio temp.",
+    title: "OmariShot",
+    description: "A photographer's portfolio landing page.",
     demo: "https://omarishot.vercel.app/",
-    image: "/tresses.png?height=400&width=600",
+    github: null,
+    image: "/tresses.png",
+    category: "Frontend"
   },
   {
     id: 4,
-    title: "Tresses Eyewear",
-    description: "An eyewear E-commerce store.",
-    demo: "https://adornment-ke.vercel.app/",
-    image: "/adornment.png?height=400&width=600",
+    title: "Tresses",
+    description: "A full fledged eyewear E-commerce store with payment intergration.",
+    demo: "null",
+    github: null,
+    image: "/adornment.png",
+    category: "Full Stack"
   },
   {
     id: 5,
     title: "READMEaker",
     description:
-      "A README editor/generator. This is an open-source project that helps developers create README files with assistance of ready made section templates and AI.",
+      "A README editor/generator. This project helps developers create README files with assistance of ready made section templates and AI.",
     demo: "https://readme.works/",
-    image: "/readmeaker.png?height=400&width=600",
+    github: null,
+    image: "/readmeaker.png",
+    category: "Full Stack"
   },
   {
     id: 6,
     title: "Connect 4",
     description:
-      "Connect 4 game with two players. This classic game implementation allows two players to compete against each other in a strategic battle to connect four of their pieces in a row.",
+      "My version of the connect 4 game with two players. This classic game implementation allows two players to compete against each other in a strategic battle to connect four of their pieces in a row.",
     demo: "https://react-project-rouge-kappa.vercel.app/",
-    image: "/connectfour.png?height=400&width=600",
+    github: null,
+    image: "/connectfour.png",
+    category: "Frontend"
   },
 ];
 
@@ -107,9 +119,25 @@ const techStack = [
   },
 ];
 
+// Updated interface to include category
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  demo: string;
+  github: string | null;
+  image: string;
+  category: string;
+}
+
+interface TechItem {
+  name: string;
+  url: string;
+  icon: string;
+}
+
 export default function Projects() {
   const [currentProject, setCurrentProject] = useState(0);
-  const carouselRef = useRef<HTMLDivElement>(null);
 
   const nextProject = () => {
     setCurrentProject((prev) => (prev + 1) % projects.length);
@@ -117,6 +145,29 @@ export default function Projects() {
 
   const prevProject = () => {
     setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
+  };
+
+  // Handle keyboard navigation
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowLeft') {
+      prevProject();
+    } else if (e.key === 'ArrowRight') {
+      nextProject();
+    }
+  };
+
+  // Category badge color mapping
+  const getCategoryColor = (category: string) => {
+    switch(category) {
+      case "Frontend":
+        return "bg-blue-500";
+      case "Backend":
+        return "bg-green-500";
+      case "Full Stack":
+        return "bg-purple-500";
+      default:
+        return "bg-gray-500";
+    }
   };
 
   return (
@@ -132,50 +183,81 @@ export default function Projects() {
         <h1 className="text-2xl md:text-3xl font-bold mb-8 text-center">
           Recent Projects
         </h1>
-        <div ref={carouselRef} className="relative overflow-hidden w-full mb-8">
+        <div
+          className="relative overflow-hidden w-full mb-8"
+          tabIndex={0}
+          onKeyDown={handleKeyDown}
+          aria-roledescription="carousel"
+          aria-label="Projects showcase"
+        >
           <div
             className="flex transition-transform duration-300 ease-in-out"
             style={{ transform: `translateX(-${currentProject * 100}%)` }}
           >
-            {projects.map((project) => (
+            {projects.map((project, index) => (
               <div key={project.id} className="w-full flex-shrink-0">
                 <motion.div
-                  className="relative bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden h-[350px] group"
-                  initial={{ scale: 1 }}
-                  animate={{ scale: 1.1 }}
-                  transition={{ duration: 1 }}
+                  className={`relative bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden h-[350px] md:h-[450px] group ${index === currentProject ? 'ring-2 ring-blue-500' : ''}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
                 >
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    layout="fill"
-                    objectFit="cover"
-                    className="absolute inset-0"
-                  />
+                  <div className="absolute inset-0">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      priority={index === currentProject}
+                    />
+                  </div>
+                  {/* Reduced opacity from 70% to 50% to make images more visible */}
                   <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex flex-col justify-center items-center text-center p-4">
-                    <h2 className="text-xl font-bold mb-2 text-white">
+                    {/* Category badge */}
+                    <span className={`absolute top-4 right-4 px-2 py-1 rounded text-xs text-white font-medium ${getCategoryColor(project.category)}`}>
+                      {project.category}
+                    </span>
+
+                    <h2 className="text-xl md:text-2xl font-bold mb-2 text-white">
                       {project.title}
                     </h2>
-                    <p className="mb-3 text-sm text-gray-200 max-h-[100px]">
-                      {project.description}
-                    </p>
-                    <div className="flex justify-center space-x-2">
+
+                    {/* Improved mobile text visibility with better height constraints */}
+                    <div className="mb-4 text-sm md:text-base text-white overflow-hidden relative w-full">
+                      {/* Mobile view - shorter description */}
+                      <p className="md:hidden line-clamp-3">
+                        {project.description}
+                      </p>
+
+                      {/* Desktop view - taller description with fade */}
+                      <p className="hidden md:block h-24">
+                        {project.description}
+                      </p>
+                      <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-black to-transparent md:block hidden"></div>
+                    </div>
+
+                    <div className="flex justify-center space-x-2 mt-2">
                       <a
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm transition-colors duration-300"
+                        className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm transition-colors duration-300"
+                        aria-label={`View live demo of ${project.title}`}
                       >
                         Live Demo
                       </a>
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded text-sm transition-colors duration-300"
-                      >
-                        Source Code
-                      </a>
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded text-sm transition-colors duration-300"
+                          aria-label={`View source code of ${project.title} on GitHub`}
+                        >
+                          Source Code
+                        </a>
+                      )}
                     </div>
                   </div>
                 </motion.div>
@@ -184,18 +266,33 @@ export default function Projects() {
           </div>
           <button
             onClick={prevProject}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r-md"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             aria-label="Previous project"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={nextProject}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l-md"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             aria-label="Next project"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
+
+          {/* Pagination indicators */}
+          <div className="absolute bottom-2 left-0 right-0 flex justify-center space-x-2">
+            {projects.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentProject(index)}
+                className={`w-2 h-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  index === currentProject ? 'bg-blue-500' : 'bg-gray-300'
+                }`}
+                aria-label={`Go to project ${index + 1}`}
+                aria-current={index === currentProject ? 'true' : 'false'}
+              />
+            ))}
+          </div>
         </div>
         <motion.div
           className="w-full h-px bg-[#2B2B2B] dark:bg-white mt-8"
@@ -206,9 +303,10 @@ export default function Projects() {
         <div className="flex flex-col items-center mt-8">
           <h2 className="text-xl font-bold mb-4">Tech Stack</h2>
           <motion.div
-            className="flex flex-wrap justify-center gap-4"
+            className="flex flex-wrap justify-center gap-4 md:gap-6"
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true }}
             variants={{
               hidden: { opacity: 0 },
               visible: {
@@ -226,6 +324,8 @@ export default function Projects() {
                 href={tech.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="flex flex-col items-center group"
+                aria-label={`Learn more about ${tech.name}`}
                 variants={{
                   hidden: { y: 20, opacity: 0 },
                   visible: {
@@ -236,7 +336,19 @@ export default function Projects() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Image src={tech.icon} alt={tech.name} width="40" height="40" />
+                <div className="relative w-10 h-10 md:w-12 md:h-12">
+                  <Image
+                    src={tech.icon}
+                    alt=""
+                    fill
+                    style={{ objectFit: 'contain' }}
+                    sizes="48px"
+                  />
+                </div>
+                {/* Always show tech name on mobile for better visibility */}
+                <span className="mt-1 text-xs md:opacity-0 md:group-hover:opacity-100 md:transition-opacity md:duration-200">
+                  {tech.name}
+                </span>
               </motion.a>
             ))}
           </motion.div>
