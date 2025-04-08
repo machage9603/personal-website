@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: `${siteName} | Software Engineer`,
     description: siteDescription,
     authors: [{ name: "Mike Machage" }],
-    keywords: ["Mike Machage", "Software Engineer", "Web Developer", "UI/UX Designer", "Full Stack developer", "Javascript", "Next.js", "TypeScript", "Portfolio", "Kenya Developer", "Kenya Software Engineer"],
+    keywords: ["Mike Machage", "Top Software Engineers", "Top Software Engineers in Kenya", "Web Developers in Kenya", "UI/UX Designer", "Full Stack developer", "Software Engineer", "Javascript", "Next.js", "TypeScript", "Portfolio", "Kenya Developer", "Kenya Software Engineer"],
     openGraph: {
         title: siteName,
         description: siteDescription,
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
     manifest: "/site.webmanifest",
     icons: {
         icon: [
-            { url: "/favicon.ico" },
-            { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-            { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" }
+            { url: "/favicon.png" },
+            { url: "/favicon.png", sizes: "16x16", type: "image/png" },
+            { url: "/favicon.png", sizes: "32x32", type: "image/png" }
         ],
         apple: [
             { url: "/apple-touch-icon.png" }

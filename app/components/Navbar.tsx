@@ -35,7 +35,7 @@ export default function Navbar() {
       <div className="flex justify-between items-center gap-6">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <img src="/favicon.ico" alt="Logo" className="h-8 w-auto" />
+          <img src="/logo.png" alt="Logo" className="h-8 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}

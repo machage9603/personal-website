@@ -49,6 +49,8 @@ export default function RootLayout({
               knowsAbout: [
                 "Web Development",
                 "Web Design",
+                "UI/UX Design",
+                "Graphic Design",
                 "JavaScript",
                 "TypeScript",
                 "Next.js",
@@ -56,18 +58,22 @@ export default function RootLayout({
                 "Node.js",
                 "MySQL",
                 "MongoDB",
+                "PostgreSQL",
+                "Git",
+                "Tailwind CSS",
+                "Supabase",
                 "Express.js",
                 "Full Stack Development",
               ],
               alumniOf: {
                 "@type": "EducationalOrganization",
-                name: "Holberton School",
+                name: "University of Eldoret",
               },
             }),
           }}
         />
       </head>
-      <body className={`${montserrat.className} ${montserrat.variable}`}>
+      <body className={`${montserrat.className} ${montserrat.variable}` } suppressHydrationWarning={true}>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
