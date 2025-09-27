@@ -28,31 +28,6 @@ const socialIcons = [
 
 const skills = ["Next.js", "React", "TypeScript", "Node.js"];
 
-// Simple Navbar component
-const Navbar = () => (
-  <nav className="relative z-20 p-6 lg:px-12 xl:px-16">
-    <div className="flex justify-between items-center">
-      <div className="text-green-400 font-medium">mike.dev</div>
-      <div className="hidden md:flex space-x-8 text-sm">
-        <a href="#home" className="text-gray-300 hover:text-green-400 transition-colors">home</a>
-        <a href="#work" className="text-gray-300 hover:text-green-400 transition-colors">work</a>
-        <a href="#about" className="text-gray-300 hover:text-green-400 transition-colors">about</a>
-        <a href="#contact" className="text-gray-300 hover:text-green-400 transition-colors">contact</a>
-      </div>
-    </div>
-  </nav>
-);
-
-// Simple Footer component
-const Footer = () => (
-  <footer className="relative z-20 p-6 lg:px-12 xl:px-16 border-t border-gray-800">
-    <div className="flex justify-between items-center text-sm text-gray-500">
-      <div>© 2024 mike machage</div>
-      <div>built with next.js</div>
-    </div>
-  </footer>
-);
-
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [currentSkill, setCurrentSkill] = useState(0);
@@ -69,9 +44,6 @@ export default function Home() {
     <div className="min-h-screen bg-gray-950 text-gray-100 font-mono flex flex-col">
       {/* Subtle grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
-      
-      {/* Navigation */}
-      <Navbar />
 
       {/* Main Content - Now takes full available height */}
       <main className="relative z-10 flex-1 flex items-center justify-center px-6 lg:px-12 xl:px-16">
@@ -176,9 +148,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-
-      {/* Footer */}
-      <Footer />
 
       {/* Minimal cursor dot */}
       <div className="fixed top-4 right-4 w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
