@@ -23,12 +23,18 @@ importers:
       '@fortawesome/react-fontawesome':
         specifier: ^0.2.2
         version: 0.2.6(@fortawesome/fontawesome-svg-core@6.7.2)(react@18.3.1)
+      '@heroicons/react':
+        specifier: ^2.2.0
+        version: 2.2.0(react@18.3.1)
       '@next/font':
         specifier: ^14.2.15
         version: 14.2.15(next@15.5.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@nextui-org/react':
         specifier: ^2.4.8
         version: 2.6.11(@types/react@18.3.24)(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.17)
+      '@radix-ui/react-icons':
+        specifier: ^1.3.2
+        version: 1.3.2(react@18.3.1)
       '@vercel/analytics':
         specifier: ^1.3.2
         version: 1.5.0(next@15.5.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
@@ -65,6 +71,9 @@ importers:
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
+      simple-icons:
+        specifier: ^15.16.0
+        version: 15.16.0
     devDependencies:
       '@types/node':
         specifier: ^20.17.6
@@ -292,6 +301,11 @@ packages:
     peerDependencies:
       '@fortawesome/fontawesome-svg-core': ~1 || ~6 || ~7
       react: ^16.3 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  '@heroicons/react@2.2.0':
+    resolution: {integrity: sha512-LMcepvRaS9LYHJGsF0zzmgKCUim/X3N/DQKc4jepAXJ7l8QxJ1PmxJzqplF2Z3FE4PqBAIGyJAQ/w4B5dsqbtQ==}
+    peerDependencies:
+      react: '>= 16 || ^19.0.0-rc'
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -1218,6 +1232,11 @@ packages:
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
+
+  '@radix-ui/react-icons@1.3.2':
+    resolution: {integrity: sha512-fyQIhGDhzfc9pK2kH6Pl9c4BDJGfMkPqkyIgYDthyNYoNg3wVhoJMMh19WS4Up/1KMPFVpNsT2q3WmXn2N1m6g==}
+    peerDependencies:
+      react: ^16.x || ^17.x || ^18.x || ^19.0.0 || ^19.0.0-rc
 
   '@react-aria/breadcrumbs@3.5.19':
     resolution: {integrity: sha512-mVngOPFYVVhec89rf/CiYQGTfaLRfHFtX+JQwY7sNYNqSA+gO8p4lNARe3Be6bJPgH+LUQuruIY9/ZDL6LT3HA==}
@@ -3493,6 +3512,10 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
+  simple-icons@15.16.0:
+    resolution: {integrity: sha512-AeyYdQ5BsFe7ONruVRClZ+2921tQIEcHuP9AZdNUR0in1jFeakH0pA9Rkjj0T/RkTH7Icx2jprXxWWY3aaCDJQ==}
+    engines: {node: '>=0.12.18'}
+
   simple-swizzle@0.2.4:
     resolution: {integrity: sha512-nAu1WFPQSMNr2Zn9PGSZK9AGn4t/y97lEm+MXTtUDwfP0ksAIX4nO+6ruD9Jwut4C49SB1Ws+fbXsm/yScWOHw==}
 
@@ -4213,6 +4236,10 @@ snapshots:
     dependencies:
       '@fortawesome/fontawesome-svg-core': 6.7.2
       prop-types: 15.8.1
+      react: 18.3.1
+
+  '@heroicons/react@2.2.0(react@18.3.1)':
+    dependencies:
       react: 18.3.1
 
   '@humanwhocodes/config-array@0.13.0':
@@ -5516,6 +5543,10 @@ snapshots:
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
+
+  '@radix-ui/react-icons@1.3.2(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
 
   '@react-aria/breadcrumbs@3.5.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -8519,6 +8550,8 @@ snapshots:
       side-channel-weakmap: 1.0.2
 
   signal-exit@4.1.0: {}
+
+  simple-icons@15.16.0: {}
 
   simple-swizzle@0.2.4:
     dependencies:

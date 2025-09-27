@@ -29,7 +29,7 @@ const socialIcons = [
   },
 ];
 
-const skills = ["Golang", "Python", "Rust", "Next.js", "React", "TypeScript", "Node.js"];
+const skills = ["Golang",  "Rust", "TypeScript", ];
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 

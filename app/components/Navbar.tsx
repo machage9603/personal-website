@@ -18,11 +18,11 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navItems = [
-    { href: "/", label: "home" },
-    { href: "/about", label: "about" },
-    { href: "/blog", label: "blog" },
-    { href: "/projects", label: "work" },
-    { href: "/contact", label: "contact" },
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/blog", label: "Blog" },
+    { href: "/projects", label: "Work" },
+    { href: "/contact", label: "Contact" },
   ];
 
   if (!mounted) return null;
