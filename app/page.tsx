@@ -2,6 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { Github, Twitter, Linkedin, Mail, ArrowRight, Download } from 'lucide-react';
+import { Montserrat } from "next/font/google";
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 const socialIcons = [
   {
@@ -26,7 +29,9 @@ const socialIcons = [
   },
 ];
 
-const skills = ["Next.js", "React", "TypeScript", "Node.js"];
+const skills = ["Golang", "Python", "Rust", "Next.js", "React", "TypeScript", "Node.js"];
+
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -41,9 +46,12 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 font-mono flex flex-col">
+    <div className={`min-h-screen bg-gray-950 text-gray-100 ${montserrat.className} font-mono flex flex-col`}>
       {/* Subtle grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
+      
+      {/* Navigation */}
+      <Navbar />
 
       {/* Main Content - Now takes full available height */}
       <main className="relative z-10 flex-1 flex items-center justify-center px-6 lg:px-12 xl:px-16">
@@ -56,20 +64,20 @@ export default function Home() {
               {/* Status */}
               <div className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-sm text-gray-400">available for work</span>
+                <span className="text-sm text-gray-400">Available for work</span>
               </div>
 
               {/* Main Heading - Larger text for full page */}
               <div className="space-y-6 lg:space-y-8">
                 <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-tight">
-                  <span className="text-gray-100">hi, i&apos;m</span>
+                  <span className="text-gray-100">Hi, I&apos;m</span>
                   <br />
-                  <span className="text-green-400 font-medium">mike machage</span>
+                  <span className="text-green-400 font-medium">Mike Machage</span>
                 </h1>
                 
                 {/* Dynamic Role */}
                 <div className="text-2xl md:text-3xl lg:text-4xl text-gray-400 font-light h-12 lg:h-16 flex items-center">
-                  <span className="mr-2">i build with</span>
+                  <span className="mr-2">I build with</span>
                   <span className="text-green-400 font-medium min-w-[120px] lg:min-w-[150px] transition-opacity duration-300">
                     {skills[currentSkill]}
                   </span>
@@ -79,7 +87,7 @@ export default function Home() {
               {/* Description */}
               <p className="text-xl lg:text-2xl xl:text-3xl text-gray-300 leading-relaxed font-light">
                 full-stack developer passionate about creating clean, efficient web applications. 
-                i focus on modern javascript technologies and user-centered design.
+                I focus on modern javascript technologies and user-centered design.
               </p>
 
               {/* Action Buttons */}
@@ -110,7 +118,7 @@ export default function Home() {
 
                 {/* Tech Stack */}
                 <div className="space-y-4">
-                  <h3 className="text-base text-gray-500 uppercase tracking-wider">tech stack</h3>
+                  <h3 className="text-base text-gray-500 uppercase tracking-wider">Tech stack</h3>
                   <div className="space-y-3">
                     {skills.map((skill, index) => (
                       <div
@@ -148,6 +156,9 @@ export default function Home() {
           </div>
         </div>
       </main>
+
+      {/* Footer */}
+      <Footer />
 
       {/* Minimal cursor dot */}
       <div className="fixed top-4 right-4 w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>

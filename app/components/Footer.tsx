@@ -1,6 +1,9 @@
 "use client";
 
 import { Github, Twitter, Linkedin, Mail, Heart, Coffee, LucideIcon } from "lucide-react";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 interface SocialLink {
   icon: LucideIcon;
@@ -35,7 +38,7 @@ export default function Footer(): JSX.Element {
   const currentYear: number = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-950 border-t border-gray-900 font-mono">
+    <footer className={`bg-gray-950 border-t border-gray-900 font-mono ${montserrat.className}`}>
       <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
