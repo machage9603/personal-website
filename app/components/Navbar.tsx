@@ -28,7 +28,7 @@ const Navbar = () => {
   if (!mounted) return null;
 
   return (
-    <nav className={`w-full bg-gray-950 border-b border-gray-900 font-mono ${montserrat.className} fixed top-0 left-0 z-50`}>
+    <nav className={`w-full bg-gray-950 border-b border-gray-900 font-mono ${montserrat.className} fixed top-0 left-0 z-30`}>
       <div className="px-6 lg:px-12 xl:px-16 py-6">
         <div className="flex justify-between items-center">
           {/* Logo */}

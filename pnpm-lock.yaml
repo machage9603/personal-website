@@ -86,9 +86,6 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@4.1.13)
-      use-dark-mode:
-        specifier: ^2.3.1
-        version: 2.3.1(react@19.1.1)
     devDependencies:
       '@eslint/js':
         specifier: ^9.36.0
@@ -2144,11 +2141,6 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@use-it/event-listener@0.1.7':
-    resolution: {integrity: sha512-hgfExDzUU9uTRTPDCpw2s9jWTxcxmpJya3fK5ADpf5VDpSy8WYwY/kh28XE0tUcbsljeP8wfan48QvAQTSSa3Q==}
-    peerDependencies:
-      react: '>=16.8.0'
-
   '@vercel/analytics@1.5.0':
     resolution: {integrity: sha512-MYsBzfPki4gthY5HnYN7jgInhAZ7Ac1cYDoRWFomwGHWEX7odTEzbtg9kf/QSo7XEsEAqlQugA6gJ2WS2DEa3g==}
     peerDependencies:
@@ -3531,11 +3523,6 @@ packages:
       '@types/react':
         optional: true
 
-  use-dark-mode@2.3.1:
-    resolution: {integrity: sha512-hmcdJR96tTustRQdaQwe6jMrZHnmPqXBxgy4jaQ4gsfhwajsCpjECuq9prgDe9XxMx/f9r96o2/md6O4Lwhwjg==}
-    peerDependencies:
-      react: ^16.8.0
-
   use-isomorphic-layout-effect@1.2.1:
     resolution: {integrity: sha512-tpZZ+EX0gaghDAiFR37hj5MgY6ZN55kLiPkJsKxBMZ6GZdOSPJXiOzPM984oPYZ5AnehYx5WQp1+ME8I/P/pRA==}
     peerDependencies:
@@ -3553,11 +3540,6 @@ packages:
     peerDependenciesMeta:
       '@types/react':
         optional: true
-
-  use-persisted-state@0.3.3:
-    resolution: {integrity: sha512-pCNlvYC8+XjRxwnIut4teGC9f2p9aD88R8OGseQGZa2dvqG/h1vEGk1vRE1IZG0Vf161UDpn+NlW4+UGubQflQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0
 
   use-sync-external-store@1.5.0:
     resolution: {integrity: sha512-Rb46I4cGGVBmjamjphe8L/UnvJD+uPPtTkNvX5mZgqdbavhI4EbgIWJiIHXJ8bc/i9EQGPRh4DwEURJ552Do0A==}
@@ -6711,10 +6693,6 @@ snapshots:
   '@unrs/resolver-binding-win32-x64-msvc@1.11.1':
     optional: true
 
-  '@use-it/event-listener@0.1.7(react@19.1.1)':
-    dependencies:
-      react: 19.1.1
-
   '@vercel/analytics@1.5.0(next@15.5.4(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)':
     optionalDependencies:
       next: 15.5.4(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -8305,12 +8283,6 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.1.14
 
-  use-dark-mode@2.3.1(react@19.1.1):
-    dependencies:
-      '@use-it/event-listener': 0.1.7(react@19.1.1)
-      react: 19.1.1
-      use-persisted-state: 0.3.3(react@19.1.1)
-
   use-isomorphic-layout-effect@1.2.1(@types/react@19.1.14)(react@19.1.1):
     dependencies:
       react: 19.1.1
@@ -8323,11 +8295,6 @@ snapshots:
       use-isomorphic-layout-effect: 1.2.1(@types/react@19.1.14)(react@19.1.1)
     optionalDependencies:
       '@types/react': 19.1.14
-
-  use-persisted-state@0.3.3(react@19.1.1):
-    dependencies:
-      '@use-it/event-listener': 0.1.7(react@19.1.1)
-      react: 19.1.1
 
   use-sync-external-store@1.5.0(react@19.1.1):
     dependencies:
