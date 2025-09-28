@@ -5,6 +5,7 @@ import Head from "next/head";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "./components/theme-provider";
+import React from "react";
 
 export default function ClientLayout({
   children,
