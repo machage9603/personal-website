@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Github, Twitter, Linkedin, Mail, ArrowRight, Download } from 'lucide-react';
+import { SiBluesky } from '@icons-pack/react-simple-icons';
 import { Montserrat } from "next/font/google";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -16,6 +17,11 @@ const socialIcons = [
     icon: Twitter,
     href: "https://twitter.com/sermachage",
     label: "Twitter",
+  },
+  {
+    icon: SiBluesky,
+    href: "https://bsky.app/profile/sermachage.bsky.social",
+    label: "Bluesky",
   },
   {
     icon: Linkedin,

@@ -1,9 +1,13 @@
 
-@import "tw-animate-css";
+@import 'tailwindcss';
 
-@plugin "tailwindcss-animate";
+@source '../node_modules/@heroui/theme/dist';
 
 @custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-family-sans: Montserrat, system-ui, sans-serif;
+}
 
 @tailwind base;
 @tailwind components;
