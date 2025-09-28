@@ -1,13 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+import { Montserrat } from "next/font/google";
+import Link from 'next/link';
 
-export default function Navbar() {
+const skills = ["Next.js", "React", "TypeScript", "Node.js"];
+const montserrat = Montserrat({ subsets: ["latin"] });
+
+// Updated Navbar component to match your actual code with full width
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
@@ -15,44 +18,37 @@ export default function Navbar() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navItems = [
-    { href: "/", label: "home" },
-    { href: "/about", label: "about" },
-    { href: "/blog", label: "blog" },
-    { href: "/projects", label: "work" },
-    { href: "/contact", label: "contact" },
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/blog", label: "Blog" },
+    { href: "/projects", label: "Work" },
+    { href: "/contact", label: "Contact" },
   ];
 
   if (!mounted) return null;
 
   return (
-    <nav className="w-full bg-gray-950 border-b border-gray-900 font-mono">
-      <div className="max-w-4xl mx-auto px-6 py-6">
+    <nav className={`w-full bg-gray-950 border-b border-gray-900 font-mono ${montserrat.className} fixed top-0 left-0 z-30`}>
+      <div className="px-6 lg:px-12 xl:px-16 py-6">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link 
+          <a 
             href="/" 
             className="text-lg font-medium text-gray-100 hover:text-green-400 transition-colors duration-200"
           >
             mike<span className="text-green-400">@</span>portfolio
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <ul className="hidden md:flex items-center space-x-8">
             {navItems.map(({ href, label }) => (
               <li key={href}>
-                <Link
+                <a
                   href={href}
-                  className={`text-sm transition-colors duration-200 relative group
-                    ${pathname === href 
-                      ? "text-green-400" 
-                      : "text-gray-400 hover:text-gray-100"
-                    }`}
+                  className="text-sm transition-colors duration-200 relative group text-gray-400 hover:text-gray-100"
                 >
-                  {pathname === href && (
-                    <span className="absolute -left-2 text-green-400">→</span>
-                  )}
                   {label}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
@@ -73,17 +69,13 @@ export default function Navbar() {
             <ul className="space-y-4">
               {navItems.map(({ href, label }) => (
                 <li key={href}>
-                  <Link
+                  <a
                     href={href}
-                    className={`block text-sm transition-colors duration-200
-                      ${pathname === href 
-                        ? "text-green-400" 
-                        : "text-gray-400 hover:text-gray-100"
-                      }`}
+                    className="block text-sm transition-colors duration-200 text-gray-400 hover:text-gray-100"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    {pathname === href && "→ "}{label}
-                  </Link>
+                    {label}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -92,4 +84,6 @@ export default function Navbar() {
       </div>
     </nav>
   );
-}
+};
+
+export default Navbar;
