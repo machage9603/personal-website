@@ -5,7 +5,6 @@ import { Menu, X } from 'lucide-react';
 import { Montserrat } from "next/font/google";
 import Link from 'next/link';
 
-const skills = ["Next.js", "React", "TypeScript", "Node.js"];
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 // Updated Navbar component to match your actual code with full width
@@ -32,23 +31,23 @@ const Navbar = () => {
       <div className="px-6 lg:px-12 xl:px-16 py-6">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <a 
+          <Link 
             href="/" 
             className="text-lg font-medium text-gray-100 hover:text-green-400 transition-colors duration-200"
           >
             mike<span className="text-green-400">@</span>portfolio
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <ul className="hidden md:flex items-center space-x-8">
             {navItems.map(({ href, label }) => (
               <li key={href}>
-                <a
+                <Link
                   href={href}
                   className="text-sm transition-colors duration-200 relative group text-gray-400 hover:text-gray-100"
                 >
                   {label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -69,13 +68,13 @@ const Navbar = () => {
             <ul className="space-y-4">
               {navItems.map(({ href, label }) => (
                 <li key={href}>
-                  <a
+                  <Link
                     href={href}
                     className="block text-sm transition-colors duration-200 text-gray-400 hover:text-gray-100"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

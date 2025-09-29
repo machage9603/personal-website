@@ -1,4 +1,3 @@
-// components/theme-provider.tsx
 "use client";
 
 import * as React from "react";
@@ -32,13 +31,11 @@ const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
 export function ThemeProvider({
   children,
-  attribute = "class",
   defaultTheme = "system",
-  enableSystem = true,
   disableTransitionOnChange = false,
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(() => {
+  const [theme, setThemeState] = useState<Theme>(() => {
     if (typeof window !== "undefined") {
       return (localStorage.getItem("theme") as Theme) || defaultTheme;
     }
@@ -75,7 +72,8 @@ export function ThemeProvider({
         );
         document.head.appendChild(css);
 
-        window.getComputedStyle(css).opacity;
+        // Force reflow
+        void window.getComputedStyle(css).opacity;
         document.head.removeChild(css);
       }
 
@@ -86,14 +84,16 @@ export function ThemeProvider({
     }
   }, [theme, systemTheme, disableTransitionOnChange]);
 
+  const setTheme = (newTheme: Theme) => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", newTheme);
+    }
+    setThemeState(newTheme);
+  };
+
   const value = {
     theme,
-    setTheme: (theme: Theme) => {
-      if (typeof window !== "undefined") {
-        localStorage.setItem("theme", theme);
-      }
-      setTheme(theme);
-    },
+    setTheme,
     systemTheme,
     resolvedTheme,
   };

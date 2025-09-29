@@ -2,6 +2,7 @@
 
 import { Github, Twitter, Linkedin, Mail, Heart, Coffee, LucideIcon } from "lucide-react";
 import { Montserrat } from "next/font/google";
+import { JSX } from "react";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
