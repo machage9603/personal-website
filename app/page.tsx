@@ -45,9 +45,11 @@ export default function Home() {
 
   useEffect(() => {
     setIsVisible(true);
+    // eslint-disable-next-line no-undef
     const interval = setInterval(() => {
       setCurrentSkill((prev) => (prev + 1) % skills.length);
     }, 3000);
+    // eslint-disable-next-line no-undef
     return () => clearInterval(interval);
   }, []);
 

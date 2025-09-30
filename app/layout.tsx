@@ -2,6 +2,7 @@ import { Montserrat } from "next/font/google";
 import "./ui/globals.css";
 import { metadata } from "./metadata";
 import ClientLayout from "./client-layout";
+import React from "react";
 
 // Replace Inter with Montserrat
 const montserrat = Montserrat({
