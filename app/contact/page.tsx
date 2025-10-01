@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+ 
 "use client";
 
 import { motion } from "framer-motion";
