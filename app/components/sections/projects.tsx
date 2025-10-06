@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Navbar from "../components/Navbar";
+import Navbar from "../Navbar";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import React from "react";
 

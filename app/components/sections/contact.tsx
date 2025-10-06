@@ -2,7 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Navbar from "../components/Navbar";
+import Navbar from "../Navbar";
 import { useState, ChangeEvent, FormEvent } from "react";
 
 export default function Contact() {

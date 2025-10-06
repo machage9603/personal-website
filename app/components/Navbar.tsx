@@ -1,38 +1,56 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 import { Montserrat } from "next/font/google";
-import Link from 'next/link';
+import Link from "next/link";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
-// Updated Navbar component to match your actual code with full width
+// Move navItems outside component since it's static
+const navItems = [
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#blog", label: "Blog" },
+  { href: "#projects", label: "Work" },
+  { href: "#contact", label: "Contact" },
+];
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+    navItems.forEach(({ href }) => {
+      const id = href.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
 
-  const navItems = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/blog", label: "Blog" },
-    { href: "/projects", label: "Work" },
-    { href: "/contact", label: "Contact" },
-  ];
-
-  if (!mounted) return null;
+    return () => observer.disconnect();
+  }, []); // Now the dependency array is correct
 
   return (
-    <nav className={`w-full bg-gray-950 border-b border-gray-900 font-mono ${montserrat.className} fixed top-0 left-0 z-30`}>
+    <nav
+      className={`w-full bg-gray-950 border-b border-gray-900 font-mono ${montserrat.className} fixed top-0 left-0 z-30`}
+    >
       <div className="px-6 lg:px-12 xl:px-16 py-6">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link 
-            href="/" 
+          <Link
+            href="#home"
+            scroll={true}
             className="text-lg font-medium text-gray-100 hover:text-green-400 transition-colors duration-200"
           >
             mike<span className="text-green-400">@</span>portfolio
@@ -44,7 +62,12 @@ const Navbar = () => {
               <li key={href}>
                 <Link
                   href={href}
-                  className="text-sm transition-colors duration-200 relative group text-gray-400 hover:text-gray-100"
+                  scroll={true}
+                  className={`text-sm transition-colors duration-200 relative group ${
+                    activeSection === href.replace("#", "")
+                      ? "text-green-400"
+                      : "text-gray-400 hover:text-gray-100"
+                  }`}
                 >
                   {label}
                 </Link>
@@ -54,7 +77,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Toggle */}
           <button
-            onClick={toggleMenu}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2 text-gray-400 hover:text-gray-100 transition-colors duration-200"
             aria-label="Toggle menu"
           >
@@ -70,7 +93,12 @@ const Navbar = () => {
                 <li key={href}>
                   <Link
                     href={href}
-                    className="block text-sm transition-colors duration-200 text-gray-400 hover:text-gray-100"
+                    scroll={true}
+                    className={`block text-sm transition-colors duration-200 ${
+                      activeSection === href.replace("#", "")
+                        ? "text-green-400"
+                        : "text-gray-400 hover:text-gray-100"
+                    }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {label}
