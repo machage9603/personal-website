@@ -1,8 +1,22 @@
 "use client";
 
 import { ArrowRight, Download } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 
-export default function Hero({ isVisible, skills, currentSkill, socialIcons }: any) {
+interface SocialIcon {
+  label: string;
+  href: string;
+  icon: LucideIcon;
+}
+
+interface HeroProps {
+  isVisible: boolean;
+  skills: string[];
+  currentSkill: number;
+  socialIcons: SocialIcon[];
+}
+
+export default function Hero({ isVisible, skills, currentSkill, socialIcons }: HeroProps) {
   return (
     <section
       id="home"
@@ -85,7 +99,7 @@ export default function Hero({ isVisible, skills, currentSkill, socialIcons }: a
             <div className="space-y-4">
               <h3 className="text-base text-gray-500 uppercase tracking-wider">connect</h3>
               <div className="space-y-3">
-                {socialIcons.map((social: any) => (
+                {socialIcons.map((social: SocialIcon) => (
                   <a
                     key={social.label}
                     href={social.href}
