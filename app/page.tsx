@@ -1,6 +1,4 @@
 import React from 'react';
-import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
-import { SiBluesky } from '@icons-pack/react-simple-icons';
 import { Montserrat } from "next/font/google";
 import HeroWrapper from './components/sections/herowrapper';
 import About from './components/sections/about';
@@ -10,35 +8,6 @@ import Contact from './components/sections/contact';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-const socialIcons = [
-  {
-    icon: Github,
-    href: "https://github.com/machage9603",
-    label: "GitHub",
-  },
-  {
-    icon: Twitter,
-    href: "https://twitter.com/sermachage",
-    label: "Twitter",
-  },
-  {
-    icon: SiBluesky,
-    href: "https://bsky.app/profile/sermachage.bsky.social",
-    label: "Bluesky",
-  },
-  {
-    icon: Linkedin,
-    href: "https://www.linkedin.com/in/mikemachage/",
-    label: "LinkedIn",
-  },
-  {
-    icon: Mail,
-    href: "mailto:machage@example.com",
-    label: "Email",
-  },
-];
-
-const skills = ["Golang", "Rust", "TypeScript"];
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export default function Home() {
@@ -49,7 +18,7 @@ export default function Home() {
       <Navbar />
 
       <main>
-        <HeroWrapper skills={skills} socialIcons={socialIcons} />
+        <HeroWrapper />
         <About />
         <Projects />
         <Blog />
