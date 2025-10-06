@@ -2,11 +2,12 @@
 
 import { ArrowRight, Download } from "lucide-react";
 import { LucideIcon } from "lucide-react";
+import React from "react";
 
 interface SocialIcon {
   label: string;
   href: string;
-  icon: LucideIcon;
+  icon: React.ComponentType<{ size?: number | string }>;
 }
 
 interface HeroProps {
