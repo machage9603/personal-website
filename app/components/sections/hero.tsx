@@ -100,7 +100,7 @@ export default function Hero({ isVisible, skills, currentSkill, socialIcons }: H
             <div className="space-y-4">
               <h3 className="text-base text-gray-500 uppercase tracking-wider">connect</h3>
               <div className="space-y-3">
-                {socialIcons.map((social: SocialIcon) => (
+                {socialIcons.map((social) => (
                   <a
                     key={social.label}
                     href={social.href}
