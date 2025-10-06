@@ -83,7 +83,7 @@ export default function Hero({ isVisible, skills, currentSkill, socialIcons }: H
             <div className="space-y-4">
               <h3 className="text-base text-gray-500 uppercase tracking-wider">Tech stack</h3>
               <div className="space-y-3">
-                {skills.map((skill: string, index: number) => (
+                {skills.map((skill, index) => (
                   <div
                     key={skill}
                     className={`text-base lg:text-lg transition-colors duration-300 ${
