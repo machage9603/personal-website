@@ -111,7 +111,7 @@ const Navbar = () => {
               scroll={true}
               className="px-6 py-2.5 bg-green-400 text-gray-950 text-sm font-semibold rounded-lg transition-all duration-300 hover:bg-green-300 hover:shadow-lg hover:shadow-green-400/20"
             >
-              Let's Talk
+              {"Let's Talk"}
             </Link>
           </div>
 
@@ -176,7 +176,7 @@ const Navbar = () => {
                 className="block w-full text-center px-6 py-3.5 bg-green-400 text-gray-950 text-base font-semibold rounded-lg transition-all duration-300 hover:bg-green-300 hover:shadow-lg hover:shadow-green-400/20"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Let's Talk
+                {"Let's Talk"}
               </Link>
             </div>
           </div>

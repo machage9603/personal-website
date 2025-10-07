@@ -16,7 +16,7 @@ interface HeroProps {
   socialIcons: SocialIcon[];
 }
 
-export default function Hero({ isVisible, skills, currentSkill, socialIcons }: HeroProps) {
+export default function Hero({ isVisible, skills, currentSkill }: HeroProps) {
   return (
     <section
       id="home"
@@ -40,7 +40,7 @@ export default function Hero({ isVisible, skills, currentSkill, socialIcons }: H
             {/* Main Heading */}
             <div className="space-y-3">
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-[1.1] tracking-tight">
-                <span className="text-gray-400 block mb-2">Hi, I'm</span>
+                <span className="text-gray-400 block mb-2">Hi, {"I'm"}</span>
                 <span className="text-white font-semibold">Mike Machage</span>
               </h1>
             </div>

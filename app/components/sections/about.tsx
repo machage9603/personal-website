@@ -39,7 +39,7 @@ export default function About() {
           >
             <div className="space-y-5 text-base md:text-lg text-gray-400 leading-relaxed">
               <p>
-                I'm <span className="text-white font-semibold">Mike Machage</span>, a top-tier software engineer passionate about turning bold ideas into reality with modern JavaScript powerhouses like{" "}
+                {"I'm"} <span className="text-white font-semibold">Mike Machage</span>, a top-tier software engineer passionate about turning bold ideas into reality with modern JavaScript powerhouses like{" "}
                 <span className="text-green-400 font-medium">Next.js</span>,{" "}
                 <span className="text-green-400 font-medium">React</span>,{" "}
                 <span className="text-green-400 font-medium">Node.js</span> &{" "}
@@ -48,18 +48,18 @@ export default function About() {
 
               <p>
                 My process is fast and founder-friendly: from first contact to coding in just{" "}
-                <span className="text-white font-semibold">48 hours</span>, I eliminate hiring bottlenecks and accelerate your project—whether it's a sleek frontend, robust backend, or a{" "}
+                <span className="text-white font-semibold">48 hours</span>, I eliminate hiring bottlenecks and accelerate your project—whether {"it's"} a sleek frontend, robust backend, or a{" "}
                 <span className="text-white font-semibold">30-day MVP</span>.
               </p>
 
               <p>
-                What sets me apart is my commitment to partnership. I don't just code—I strategize, lead, and take ownership, ensuring your solution evolves with your needs. With a risk-free guarantee and{" "}
+                What sets me apart is my commitment to partnership. I {"don't"} just code—I strategize, lead, and take ownership, ensuring your solution evolves with your needs. With a risk-free guarantee and{" "}
                 <span className="text-white font-semibold">30 days of free post-launch support</span>.
               </p>
 
               <p>
-                Whether you're a startup founder with a bold vision or a company leveling up your tech, I'm here to make it happen. Ready to bring your ideas to life?{" "}
-                <span className="text-green-400 font-semibold">Let's chat about your next step!</span>
+                Whether {"you're"} a startup founder with a bold vision or a company leveling up your tech, {"I'm"} here to make it happen. Ready to bring your ideas to life?{" "}
+                <span className="text-green-400 font-semibold">{"Let's"} chat about your next step!</span>
               </p>
             </div>
           </motion.div>

@@ -106,7 +106,7 @@ export default function Contact() {
               <div className="flex-1 h-px bg-gray-800 max-w-xs"></div>
             </div>
             <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
-              Have a project in mind or just want to chat? I'd love to hear from you. Drop me a message and I'll get back to you as soon as possible.
+              Have a project in mind or just want to chat? {"I'd"} love to hear from you. Drop me a message and {"I'll"} get back to you as soon as possible.
             </p>
           </motion.div>
 
@@ -222,11 +222,11 @@ export default function Contact() {
               {/* Contact Info Card */}
               <div className="bg-gray-900/30 backdrop-blur-sm border border-gray-800 rounded-2xl p-8">
                 <h3 className="text-xl font-semibold text-white mb-6">
-                  Let's work together
+                  {"Let's"} work together
                 </h3>
                 <div className="space-y-4 text-gray-400">
                   <p className="leading-relaxed">
-                    I'm currently available for freelance work and open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                    {"I'm"} currently available for freelance work and open to discussing new projects, creative ideas, or opportunities to be part of your vision.
                   </p>
                   <div className="pt-4 border-t border-gray-800">
                     <p className="text-sm font-medium text-gray-500 mb-2">Response Time</p>
