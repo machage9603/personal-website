@@ -1,7 +1,6 @@
 "use client";
 
 import { ArrowRight, Download } from "lucide-react";
-import { LucideIcon } from "lucide-react";
 import React from "react";
 
 interface SocialIcon {
