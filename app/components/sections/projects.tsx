@@ -6,6 +6,7 @@ import Navbar from "../Navbar";
 import { ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react";
 import React from "react";
 
+// Added category property to each project
 const projects = [
   {
     id: 1,
