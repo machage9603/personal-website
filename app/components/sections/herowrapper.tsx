@@ -33,7 +33,7 @@ const socialIcons = [
   },
 ];
 
-const skills = ["Golang", "Rust", "TypeScript"];
+const skills = ["Go", "TypeScript", "Rust"];
 
 export default function HeroWrapper() {
   const [isVisible, setIsVisible] = useState(false);
