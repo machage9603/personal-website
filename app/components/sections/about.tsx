@@ -2,126 +2,78 @@
 
 import { motion } from "framer-motion";
 import Navbar from "../Navbar";
-import { Phone, Mail } from "lucide-react";
-import Image from "next/image";
 
 export default function About() {
   return (
-    <div className="flex flex-col items-center justify-center p-4 min-h-screen">
+    <>
       <Navbar />
-      <div className="w-full max-w-4xl flex flex-col items-center">
-        <motion.div
-          className="w-full h-px bg-[#2B2B2B] dark:bg-white mb-8"
-          initial={{ width: 0 }}
-          animate={{ width: "100%" }}
-          transition={{ duration: 1 }}
-        ></motion.div>
-        <h1 className="text-3xl font-bold mb-6">About Me</h1>
-        <p className="mb-4">
-        I’m Mike Machage, a top-tier software engineer passionate about turning bold ideas into reality with modern JavaScript Powerhouses like: Next.js, React, Node.js & TypeScript.
-        </p>
-        <p className="mb-4">
-        My process is fast and founder-friendly: from first contact to coding in just 48 hours, I eliminate hiring bottlenecks and accelerate your project—whether it’s a sleek frontend, robust backend, or a 30-day MVP.
-        </p>
-        <p className="mb-4">
-        What sets me apart is my commitment to partnership. I don’t just code—I strategize, lead, and take ownership, ensuring your solution evolves with your needs. With a risk-free guarantee and 30 days of free post-launch support.
-        </p>
-        <p className="mb-4">
-        Whether you’re a startup founder with a bold vision or a company leveling up your tech, I’m here to make it happen. Ready to bring your ideas to life? Let’s chat about your next step!
-        </p>
-        <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 w-full">
-          <motion.a
-            href="tel:+254707800048"
-            className="group relative flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-full shadow-lg transition-all duration-300 hover:from-green-600 hover:to-emerald-700 hover:shadow-xl active:scale-95 w-full sm:w-auto overflow-hidden"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+      <section
+        id="about"
+        className="relative min-h-screen flex items-center px-6 py-32 lg:px-12 xl:px-20 2xl:px-32"
+      >
+        <div className="w-full max-w-[1600px] mx-auto">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-16 lg:mb-20"
           >
-            {/* Gradient overlay for hover effect */}
-            <span className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></span>
-            <Phone className="w-5 h-5 relative z-10" />
-            <span className="text-lg font-medium relative z-10">+254707800048</span>
-            {/* Subtle shine effect */}
-            <span className="absolute inset-0 -top-1/2 w-1/4 bg-white/20 transform -skew-x-12 transition-all duration-300 group-hover:left-full -left-1/4"></span>
-          </motion.a>
+            <div className="flex items-center gap-4 mb-6">
+              <span className="text-green-400 text-lg font-mono font-semibold">01.</span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+                About Me
+              </h2>
+              <div className="flex-1 h-px bg-gray-800 ml-6"></div>
+            </div>
+          </motion.div>
 
-          {/* email button */}
-          <motion.a
-            href="mailto:mikemachage@gmail.com"
-            className="flex items-center justify-center space-x-2 px-6 py-3 text-current border border-current rounded-full transition-all duration-300 hover:bg-blue-500 hover:border-blue-500 hover:text-white active:bg-[#DB4437] active:border-[#DB4437] w-full sm:w-auto"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          {/* Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-4xl"
           >
-            <Mail className="w-5 h-5" />
-            <span className="text-lg">mikemachage@gmail.com</span>
-          </motion.a>
+            <div className="space-y-5 text-base md:text-lg text-gray-400 leading-relaxed">
+              <p>
+                I'm <span className="text-white font-semibold">Mike Machage</span>, a top-tier software engineer passionate about turning bold ideas into reality with modern JavaScript powerhouses like{" "}
+                <span className="text-green-400 font-medium">Next.js</span>,{" "}
+                <span className="text-green-400 font-medium">React</span>,{" "}
+                <span className="text-green-400 font-medium">Node.js</span> &{" "}
+                <span className="text-green-400 font-medium">TypeScript</span>.
+              </p>
+
+              <p>
+                My process is fast and founder-friendly: from first contact to coding in just{" "}
+                <span className="text-white font-semibold">48 hours</span>, I eliminate hiring bottlenecks and accelerate your project—whether it's a sleek frontend, robust backend, or a{" "}
+                <span className="text-white font-semibold">30-day MVP</span>.
+              </p>
+
+              <p>
+                What sets me apart is my commitment to partnership. I don't just code—I strategize, lead, and take ownership, ensuring your solution evolves with your needs. With a risk-free guarantee and{" "}
+                <span className="text-white font-semibold">30 days of free post-launch support</span>.
+              </p>
+
+              <p>
+                Whether you're a startup founder with a bold vision or a company leveling up your tech, I'm here to make it happen. Ready to bring your ideas to life?{" "}
+                <span className="text-green-400 font-semibold">Let's chat about your next step!</span>
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Bottom Accent Line */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="w-full h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent mt-20 origin-center"
+          ></motion.div>
         </div>
-        <motion.div
-          className="w-full h-px bg-[#2B2B2B] dark:bg-white mt-8"
-          initial={{ width: 0 }}
-          animate={{ width: "100%" }}
-          transition={{ duration: 1 }}
-        ></motion.div>
-
-        <p className="text-center mt-8 mb-4 text-xl font-semibold">Recreation</p>
-        <div className="flex flex-wrap justify-center gap-4">
-
-            <Image
-              src="https://github.com/jrohitofficial/jrohitofficial/blob/master/Man%20Bouncing%20Ball%20Medium-Dark%20Skin%20Tone.png?raw=true"
-              alt="Basketball"
-              width="40"
-              height="40"
-            />
-
-            <Image
-              src="https://raw.githubusercontent.com/jrohitofficial/jrohitofficial/master/Soccer%20Ball.webp"
-              alt="Soccer"
-              width="40"
-              height="40"
-            />
-
-            <Image
-              src="https://raw.githubusercontent.com/jrohitofficial/jrohitofficial/master/Video%20Game.webp"
-              alt="Video Games"
-              width="40"
-              height="40"
-            />
-
-            <Image
-              src="https://github.com/jrohitofficial/jrohitofficial/blob/master/Musical%20Notes.png?raw=true"
-              alt="Music"
-              width="40"
-              height="40"
-            />
-
-            <Image
-              src="https://github.com/jrohitofficial/jrohitofficial/blob/master/Man%20Technologist%20Medium-Dark%20Skin%20Tone.png?raw=true"
-              alt="Technology"
-              width="40"
-              height="40"
-            />
-
-            <Image
-              src="https://github.com/jrohitofficial/jrohitofficial/blob/master/globe.gif?raw=true"
-              alt="Travel"
-              width="40"
-              height="40"
-            />
-
-            <Image
-              src="https://github.com/jrohitofficial/jrohitofficial/blob/master/book.gif?raw=true"
-              alt="Reading"
-              width="40"
-              height="40"
-            />
-
-            <Image
-              src="https://github.com/jrohitofficial/jrohitofficial/blob/master/music.gif?raw=true"
-              alt="Music"
-              width="40"
-              height="40"
-            />
-        </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }

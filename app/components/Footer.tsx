@@ -1,13 +1,13 @@
 "use client";
 
-import { Github, Twitter, Linkedin, Mail, Heart, Coffee, LucideIcon } from "lucide-react";
+import { Github, Twitter, Linkedin, Mail, Heart, Coffee, ArrowUp } from "lucide-react";
 import { Montserrat } from "next/font/google";
-import { JSX } from "react";
+import Link from "next/link";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 interface SocialLink {
-  icon: LucideIcon;
+  icon: React.ComponentType<{ className?: string }>;
   href: string;
   label: string;
 }
@@ -16,75 +16,108 @@ const socialLinks: SocialLink[] = [
   {
     icon: Github,
     href: "https://github.com/machage9603",
-    label: "github",
+    label: "GitHub",
   },
   {
     icon: Twitter,
     href: "https://twitter.com/sermachage",
-    label: "twitter",
+    label: "Twitter",
   },
   {
     icon: Linkedin,
     href: "https://www.linkedin.com/in/mikemachage/",
-    label: "linkedin",
+    label: "LinkedIn",
   },
   {
     icon: Mail,
     href: "mailto:mikemachage@gmail.com",
-    label: "email",
+    label: "Email",
   },
 ];
 
-export default function Footer(): JSX.Element {
-  const currentYear: number = new Date().getFullYear();
+const quickLinks = [
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#projects", label: "Projects" },
+  { href: "#blog", label: "Blog" },
+  { href: "#contact", label: "Contact" },
+];
+
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
-    <footer className={`bg-gray-950 border-t border-gray-900 font-mono ${montserrat.className}`}>
-      <div className="max-w-4xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className={`relative bg-gray-950 border-t border-gray-800 ${montserrat.className}`}>
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-12 xl:px-20 2xl:px-32 py-16 lg:py-20">
+        
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 mb-12">
           
-          {/* Left: Brand */}
-          <div className="space-y-4">
-            <div className="text-lg font-medium text-gray-100">
-              mike<span className="text-green-400">@</span>portfolio
-            </div>
-            <p className="text-sm text-gray-400 max-w-xs">
-              full-stack developer crafting digital experiences with clean code and modern technologies.
+          {/* Brand Section */}
+          <div className="lg:col-span-5 space-y-6">
+            <Link
+              href="#home"
+              scroll={true}
+              className="inline-block group"
+            >
+              <span className="text-2xl font-semibold text-white tracking-tight">
+                mike
+                <span className="text-green-400 transition-all duration-300 group-hover:text-green-300">@</span>
+                <span className="text-gray-400 transition-all duration-300 group-hover:text-white">portfolio</span>
+              </span>
+            </Link>
+            <p className="text-base text-gray-400 leading-relaxed max-w-md">
+              Full-stack developer crafting exceptional digital experiences with clean code and modern technologies. Turning ideas into reality, one line at a time.
             </p>
-          </div>
-
-          {/* Center: Quick Links */}
-          <div className="space-y-4">
-            <h3 className="text-sm text-gray-300 font-medium">quick links</h3>
-            <div className="space-y-2">
-              <a href="/about" className="block text-sm text-gray-400 hover:text-gray-100 transition-colors duration-200">
-                about
-              </a>
-              <a href="/projects" className="block text-sm text-gray-400 hover:text-gray-100 transition-colors duration-200">
-                work
-              </a>
-              <a href="/blog" className="block text-sm text-gray-400 hover:text-gray-100 transition-colors duration-200">
-                blog
-              </a>
-              <a href="/contact" className="block text-sm text-gray-400 hover:text-gray-100 transition-colors duration-200">
-                contact
-              </a>
+            <div className="flex items-center gap-3">
+              <div className="relative">
+                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                <div className="absolute inset-0 w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
+              </div>
+              <span className="text-sm text-gray-500">Available for freelance work</span>
             </div>
           </div>
 
-          {/* Right: Social & Contact */}
-          <div className="space-y-4">
-            <h3 className="text-sm text-gray-300 font-medium">connect</h3>
-            <div className="space-y-2">
-              {socialLinks.map((social: SocialLink) => (
+          {/* Quick Links */}
+          <div className="lg:col-span-3 space-y-6">
+            <h3 className="text-sm uppercase tracking-[0.2em] text-gray-500 font-semibold">
+              Quick Links
+            </h3>
+            <nav className="space-y-3">
+              {quickLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  scroll={true}
+                  className="block text-base text-gray-400 hover:text-green-400 transition-colors duration-300 hover:translate-x-1 transform"
+                >
+                  → {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Social Links */}
+          <div className="lg:col-span-4 space-y-6">
+            <h3 className="text-sm uppercase tracking-[0.2em] text-gray-500 font-semibold">
+              Connect
+            </h3>
+            <div className="space-y-3">
+              {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-3 text-sm text-gray-400 hover:text-green-400 transition-colors duration-200"
+                  className="group flex items-center gap-3 text-base text-gray-400 hover:text-green-400 transition-all duration-300"
                 >
-                  <social.icon size={16} />
+                  <div className="w-10 h-10 flex items-center justify-center bg-gray-900/50 border border-gray-800 rounded-lg transition-all duration-300 group-hover:border-green-400 group-hover:bg-gray-900">
+                    <social.icon className="w-5 h-5" />
+                  </div>
                   <span>{social.label}</span>
                 </a>
               ))}
@@ -92,25 +125,35 @@ export default function Footer(): JSX.Element {
           </div>
         </div>
 
+        {/* Divider */}
+        <div className="w-full h-px bg-gray-800 mb-8"></div>
+
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          
+          {/* Copyright */}
           <div className="text-sm text-gray-500">
-            © {currentYear} mike machage. all rights reserved.
+            © {currentYear} Mike Machage. All rights reserved.
           </div>
           
-          <div className="flex items-center space-x-2 text-sm text-gray-500">
-            <span>made with</span>
-            <Heart size={14} className="text-green-400" />
+          {/* Made with love */}
+          <div className="flex items-center gap-2 text-sm text-gray-500">
+            <span>Made with</span>
+            <Heart className="w-4 h-4 text-green-400 fill-green-400 animate-pulse" />
             <span>&</span>
-            <Coffee size={14} className="text-green-400" />
-            <span>in nairobi</span>
+            <Coffee className="w-4 h-4 text-green-400" />
+            <span>in Nairobi</span>
           </div>
-        </div>
 
-        {/* Status Indicator */}
-        <div className="mt-6 flex items-center justify-center space-x-2">
-          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-          <span className="text-xs text-gray-500">server status: online</span>
+          {/* Back to Top Button */}
+          <button
+            onClick={scrollToTop}
+            className="group flex items-center gap-2 px-4 py-2 bg-gray-900/50 border border-gray-800 rounded-lg text-sm text-gray-400 hover:text-green-400 hover:border-green-400 transition-all duration-300 hover:-translate-y-1"
+            aria-label="Scroll to top"
+          >
+            <span>Back to Top</span>
+            <ArrowUp className="w-4 h-4 transition-transform group-hover:-translate-y-0.5" />
+          </button>
         </div>
       </div>
     </footer>

@@ -1,9 +1,30 @@
- 
 "use client";
 
 import { motion } from "framer-motion";
 import Navbar from "../Navbar";
 import { useState, ChangeEvent, FormEvent } from "react";
+import { Mail, User, MessageSquare, Send, Github, Linkedin, Twitter } from "lucide-react";
+
+const socialLinks = [
+  {
+    name: "GitHub",
+    icon: Github,
+    url: "https://github.com/machage9603",
+    color: "hover:text-gray-300"
+  },
+  {
+    name: "LinkedIn",
+    icon: Linkedin,
+    url: "https://linkedin.com/in/mike-machage",
+    color: "hover:text-blue-400"
+  },
+  {
+    name: "Twitter",
+    icon: Twitter,
+    url: "https://twitter.com/mikemachage",
+    color: "hover:text-sky-400"
+  }
+];
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -11,16 +32,16 @@ export default function Contact() {
     email: "",
     message: "",
   });
-  const [status, setStatus] = useState(""); // submission feedback
+  const [status, setStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Fixed typing with proper ChangeEvent type
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Fixed typing with proper FormEvent type
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
     setStatus("Sending...");
 
     try {
@@ -48,129 +69,215 @@ export default function Contact() {
 
       if (response.ok) {
         setStatus('Message sent successfully!');
-        setFormData({ name: '', email: '', message: '' }); // Reset form
+        setFormData({ name: '', email: '', message: '' });
       } else {
         setStatus('Failed to send message. Please try again.');
       }
     } catch (error) {
       console.error('Error sending email:', error);
       setStatus('An error occurred. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
     }
-
-    console.log(formData);
-    setTimeout(() => {
-      setStatus("Message sent successfully!");
-      setFormData({ name: "", email: "", message: "" });
-    }, 1000);
   };
 
   return (
-    <div className="flex flex-col items-center justify-center p-4 min-h-screen">
+    <>
       <Navbar />
-      <div className="w-full max-w-md flex flex-col items-center">
-        <motion.div
-          className="w-full h-px bg-[#2B2B2B] dark:bg-white mb-8"
-          initial={{ width: 0 }}
-          animate={{ width: "100%" }}
-          transition={{ duration: 1 }}
-        ></motion.div>
-
-        <h1 className="text-2xl md:text-3xl font-bold mb-8 text-center">
-          Contact Me
-        </h1>
-
-        <form onSubmit={handleSubmit} className="w-full space-y-6">
-          {/* Name Field */}
+      <section
+        id="contact"
+        className="relative min-h-screen flex items-center px-6 py-32 lg:px-12 xl:px-20 2xl:px-32"
+      >
+        <div className="w-full max-w-[1600px] mx-auto">
+          {/* Section Header */}
           <motion.div
-            className="space-y-2"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-16 lg:mb-20 text-center"
           >
-            <label htmlFor="name" className="text-lg">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-[#2B2B2B] dark:border-white rounded-full focus:outline-none focus:border-green-500 transition-all duration-300 bg-transparent"
-              required
-            />
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="flex-1 h-px bg-gray-800 max-w-xs"></div>
+              <span className="text-green-400 text-lg font-mono font-semibold">05.</span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+                Get In Touch
+              </h2>
+              <div className="flex-1 h-px bg-gray-800 max-w-xs"></div>
+            </div>
+            <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
+              Have a project in mind or just want to chat? I'd love to hear from you. Drop me a message and I'll get back to you as soon as possible.
+            </p>
           </motion.div>
 
-          {/* Email Field */}
+          {/* Content Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            
+            {/* Left Column - Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-7"
+            >
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Name Field */}
+                <div className="space-y-3">
+                  <label htmlFor="name" className="flex items-center gap-2 text-sm font-medium text-gray-300">
+                    <User className="w-4 h-4 text-green-400" />
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-5 py-4 bg-gray-900/50 border border-gray-800 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-green-400 focus:bg-gray-900 transition-all duration-300"
+                    placeholder="Your name"
+                    required
+                  />
+                </div>
+
+                {/* Email Field */}
+                <div className="space-y-3">
+                  <label htmlFor="email" className="flex items-center gap-2 text-sm font-medium text-gray-300">
+                    <Mail className="w-4 h-4 text-green-400" />
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-5 py-4 bg-gray-900/50 border border-gray-800 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-green-400 focus:bg-gray-900 transition-all duration-300"
+                    placeholder="your.email@example.com"
+                    required
+                  />
+                </div>
+
+                {/* Message Field */}
+                <div className="space-y-3">
+                  <label htmlFor="message" className="flex items-center gap-2 text-sm font-medium text-gray-300">
+                    <MessageSquare className="w-4 h-4 text-green-400" />
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={6}
+                    className="w-full px-5 py-4 bg-gray-900/50 border border-gray-800 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-green-400 focus:bg-gray-900 transition-all duration-300 resize-none"
+                    placeholder="Tell me about your project..."
+                    required
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-green-400 text-gray-950 rounded-lg font-semibold transition-all duration-300 hover:bg-green-300 hover:shadow-lg hover:shadow-green-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <span>Sending...</span>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <Send className="w-5 h-5" />
+                    </>
+                  )}
+                </button>
+
+                {/* Status Message */}
+                {status && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`p-4 rounded-lg text-center font-medium ${
+                      status.includes('success')
+                        ? 'bg-green-400/10 border border-green-400/30 text-green-400'
+                        : status.includes('Failed') || status.includes('error')
+                        ? 'bg-red-400/10 border border-red-400/30 text-red-400'
+                        : 'bg-blue-400/10 border border-blue-400/30 text-blue-400'
+                    }`}
+                  >
+                    {status}
+                  </motion.div>
+                )}
+              </form>
+            </motion.div>
+
+            {/* Right Column - Contact Info & Social */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="lg:col-span-5 space-y-8"
+            >
+              {/* Contact Info Card */}
+              <div className="bg-gray-900/30 backdrop-blur-sm border border-gray-800 rounded-2xl p-8">
+                <h3 className="text-xl font-semibold text-white mb-6">
+                  Let's work together
+                </h3>
+                <div className="space-y-4 text-gray-400">
+                  <p className="leading-relaxed">
+                    I'm currently available for freelance work and open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                  </p>
+                  <div className="pt-4 border-t border-gray-800">
+                    <p className="text-sm font-medium text-gray-500 mb-2">Response Time</p>
+                    <p className="text-white">Usually within 24 hours</p>
+                  </div>
+                  <div className="pt-4 border-t border-gray-800">
+                    <p className="text-sm font-medium text-gray-500 mb-2">Email</p>
+                    <a 
+                      href="mailto:mikemachage@gmail.com"
+                      className="text-green-400 hover:text-green-300 transition-colors duration-300"
+                    >
+                      mikemachage@gmail.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Links Card */}
+              <div className="bg-gray-900/30 backdrop-blur-sm border border-gray-800 rounded-2xl p-8">
+                <h3 className="text-xl font-semibold text-white mb-6">
+                  Connect with me
+                </h3>
+                <div className="flex flex-wrap gap-4">
+                  {socialLinks.map((social) => (
+                    <a
+                      key={social.name}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex items-center gap-3 px-5 py-3 bg-gray-900/50 border border-gray-800 rounded-lg text-gray-400 transition-all duration-300 hover:border-green-400 ${social.color} hover:-translate-y-1`}
+                      aria-label={social.name}
+                    >
+                      <social.icon className="w-5 h-5" />
+                      <span className="font-medium">{social.name}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Bottom Accent Line */}
           <motion.div
-            className="space-y-2"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <label htmlFor="email" className="text-lg">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-[#2B2B2B] dark:border-white rounded-full focus:outline-none focus:border-blue-500 transition-all duration-300 bg-transparent"
-              required
-            />
-          </motion.div>
-
-          {/* Message Field */}
-          <motion.div
-            className="space-y-2"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <label htmlFor="message" className="text-lg">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-[#2B2B2B] dark:border-white rounded-lg focus:outline-none focus:border-blue-500 transition-all duration-300 bg-transparent h-32 resize-none"
-              required
-            />
-          </motion.div>
-
-          {/* Submit Button */}
-          <motion.button
-            type="submit"
-            className="w-full px-6 py-3 text-current border border-[#2B2B2B] dark:border-white rounded-full transition-all duration-300 hover:bg-blue-500 hover:border-blue-500 hover:text-white active:bg-blue-600 active:border-blue-600"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Send Message
-          </motion.button>
-        </form>
-
-        {status && (
-          <motion.p
-            className="mt-4 text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            {status}
-          </motion.p>
-        )}
-
-        <motion.div
-          className="w-full h-px bg-[#2B2B2B] dark:bg-white mt-8"
-          initial={{ width: 0 }}
-          animate={{ width: "100%" }}
-          transition={{ duration: 1 }}
-        ></motion.div>
-      </div>
-    </div>
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="w-full h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent mt-20 origin-center"
+          ></motion.div>
+        </div>
+      </section>
+    </>
   );
 }
