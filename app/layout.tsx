@@ -1,8 +1,9 @@
 import { Montserrat } from "next/font/google";
-import "./components/ui/globals.css";
+import "./globals.css";
 import { metadata } from "./metadata";
 import ClientLayout from "./client-layout";
 import React from "react";
+import { Providers } from "./providers";
 
 // Replace Inter with Montserrat
 const montserrat = Montserrat({
@@ -76,6 +77,7 @@ export default function RootLayout({
       </head>
       <body className={`${montserrat.className} ${montserrat.variable}` } suppressHydrationWarning={true}>
         <ClientLayout>{children}</ClientLayout>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
