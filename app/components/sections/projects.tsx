@@ -72,29 +72,44 @@ const projects = [
 
 const techStack = [
   {
+    name: "Go",
+    url: "https://golang.org/",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original-wordmark.svg",
+  },
+  {
+    name: "Google Cloud",
+    url: "https://cloud.google.com/",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg",
+  },
+  {
+    name: "Docker",
+    url: "https://www.docker.com/",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg",
+  },
+  {
+    name: "Kubernetes",
+    url: "https://kubernetes.io/",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain-wordmark.svg",
+  },
+  {
+    name: "PostgreSQL",
+    url: "https://www.postgresql.org/",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg",
+  },
+  {
+    name: "gRPC",
+    url: "https://grpc.io/",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/grpc/grpc-original.svg",
+  },
+  {
+    name: "Git",
+    url: "https://git-scm.com/",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg",
+  },
+  {
     name: "TypeScript",
     url: "https://www.typescriptlang.org/",
     icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
-  },
-  {
-    name: "CSS3",
-    url: "https://www.w3schools.com/css/",
-    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg",
-  },
-  {
-    name: "HTML5",
-    url: "https://www.w3.org/html/",
-    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg",
-  },
-  {
-    name: "JavaScript",
-    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
-  },
-  {
-    name: "Python",
-    url: "https://www.python.org",
-    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
   },
   {
     name: "React",
@@ -102,24 +117,9 @@ const techStack = [
     icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg",
   },
   {
-    name: "Git",
-    url: "https://git-scm.com/",
-    icon: "https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg",
-  },
-  {
-    name: "Linux",
-    url: "https://www.linux.org",
-    icon: "https://seeklogo.com/images/K/kali-linux-logo-93027C57BD-seeklogo.com.png",
-  },
-  {
     name: "Next.js",
     url: "https://nextjs.org/",
-    icon: "https://logowik.com/content/uploads/images/nextjs7685.logowik.com.webp",
-  },
-  {
-    name: "Flutter",
-    url: "https://flutter.dev/",
-    icon: "https://cdn5.vectorstock.com/i/1000x1000/19/34/flutter-framework-logo-emblem-vector-44491934.jpg",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg",
   },
 ];
 
