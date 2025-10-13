@@ -39,27 +39,34 @@ export default function About() {
           >
             <div className="space-y-5 text-base md:text-lg text-gray-400 leading-relaxed">
               <p>
-                {"I'm"} <span className="text-white font-semibold">Mike Machage</span>, a top-tier software engineer passionate about turning bold ideas into reality with modern JavaScript powerhouses like{" "}
-                <span className="text-green-400 font-medium">Next.js</span>,{" "}
-                <span className="text-green-400 font-medium">React</span>,{" "}
-                <span className="text-green-400 font-medium">Node.js</span> &{" "}
-                <span className="text-green-400 font-medium">TypeScript</span>.
+                Backend Engineer specializing in building scalable, cloud-native applications and distributed systems with{" "}
+                <span className="text-green-400 font-medium">Go</span>. I design and build resilient backend services engineered for high performance and availability on the{" "}
+                <span className="text-green-400 font-medium">Google Cloud Platform</span>.
               </p>
 
               <p>
-                My process is fast and founder-friendly: from first contact to coding in just{" "}
-                <span className="text-white font-semibold">48 hours</span>, I eliminate hiring bottlenecks and accelerate your project—whether {"it's"} a sleek frontend, robust backend, or a{" "}
-                <span className="text-white font-semibold">30-day MVP</span>.
+                My project work is focused on solving real-world architectural challenges. I architected and built a complete e-commerce backend using a{" "}
+                <span className="text-white font-semibold">microservices</span> approach on{" "}
+                <span className="text-green-400 font-medium">Google Kubernetes Engine (GKE)</span>. This platform is designed to handle high-volume transactional loads by allowing core services to scale independently, ensuring system resilience and maintainability.
               </p>
 
               <p>
-                What sets me apart is my commitment to partnership. I {"don't"} just code—I strategize, lead, and take ownership, ensuring your solution evolves with your needs. With a risk-free guarantee and{" "}
-                <span className="text-white font-semibold">30 days of free post-launch support</span>.
+                Additionally, I engineered an asynchronous,{" "}
+                <span className="text-white font-semibold">event-driven data pipeline</span> capable of ingesting and processing thousands of streaming events in real-time. This system leverages{" "}
+                <span className="text-green-400 font-medium">Google Cloud Pub/Sub</span> and <span className="text-green-400 font-medium">Cloud Functions</span> to reliably funnel data into{" "}
+                <span className="text-green-400 font-medium">BigQuery</span> for large-scale analytics.
               </p>
 
               <p>
-                Whether {"you're"} a startup founder with a bold vision or a company leveling up your tech, {"I'm"} here to make it happen. Ready to bring your ideas to life?{" "}
-                <span className="text-green-400 font-semibold">{"Let's"} chat about your next step!</span>
+                I specialize in <span className="text-green-400 font-medium">Go</span> for concurrent systems,{" "}
+                <span className="text-green-400 font-medium">Google Cloud</span> for robust infrastructure, and modern architectural patterns like{" "}
+                <span className="text-white font-semibold">microservices</span> and <span className="text-white font-semibold">event-driven design</span>. My technical toolkit includes{" "}
+                <span className="text-green-400 font-medium">Docker</span>, <span className="text-green-400 font-medium">Kubernetes</span>,{" "}
+                <span className="text-green-400 font-medium">gRPC</span>, and <span className="text-green-400 font-medium">PostgreSQL</span>.
+              </p>
+
+              <p>
+                I am passionate about tackling complex backend problems and am actively seeking a Backend Engineer role where I can contribute to building reliable and scalable systems.
               </p>
             </div>
           </motion.div>

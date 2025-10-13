@@ -55,7 +55,7 @@ export default function Hero({ isVisible, skills, currentSkill }: HeroProps) {
 
             {/* Description */}
             <p className="text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl font-light">
-              Software engineer specializing in building exceptional digital experiences. Currently focused on developing responsive full-stack web applications & Go systems.
+Backend Engineer specializing in cloud-native applications and distributed systems with Go. Proven ability to design and build resilient, high-performance services on Google Cloud, demonstrated through projects including a scalable microservices platform on GKE and an event-driven data processing pipeline.
             </p>
 
             {/* Action Buttons */}
