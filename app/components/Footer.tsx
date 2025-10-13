@@ -71,7 +71,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-base text-gray-400 leading-relaxed max-w-md">
-              Full-stack developer crafting exceptional digital experiences with clean code and modern technologies. Turning ideas into reality, one line at a time.
+              Backend Engineer specializing in cloud-native applications and distributed systems with Go. 
             </p>
             <div className="flex items-center gap-3">
               <div className="relative">
