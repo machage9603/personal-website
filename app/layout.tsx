@@ -66,6 +66,10 @@ export default function RootLayout({
                 "Supabase",
                 "Express.js",
                 "Full Stack Development",
+                "Go",
+                "Distributed Systems",
+                "Microservices",
+                "Google Cloud",
               ],
               alumniOf: {
                 "@type": "EducationalOrganization",

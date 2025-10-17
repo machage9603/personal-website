@@ -45,6 +45,11 @@ export default function Hero({ isVisible, skills, currentSkill }: HeroProps) {
               </h1>
             </div>
 
+            {/* Description */}
+            <p className="text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl font-light">
+A Software Engineer specializing in cloud-native applications and distributed systems with Go. Proven ability to design and build resilient, high-performance services on Google Cloud, demonstrated through projects including a scalable microservices platform on GKE and an event-driven data processing pipeline.
+            </p>
+
             {/* Dynamic Role */}
             <div className="flex flex-wrap items-center gap-2 text-xl md:text-2xl lg:text-3xl font-light">
               <span className="text-gray-600 dark:text-gray-400">I build with</span>
@@ -53,10 +58,7 @@ export default function Hero({ isVisible, skills, currentSkill }: HeroProps) {
               </span>
             </div>
 
-            {/* Description */}
-            <p className="text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl font-light">
-Backend Engineer specializing in cloud-native applications and distributed systems with Go. Proven ability to design and build resilient, high-performance services on Google Cloud, demonstrated through projects including a scalable microservices platform on GKE and an event-driven data processing pipeline.
-            </p>
+            
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
