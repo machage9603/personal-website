@@ -68,7 +68,7 @@ export default function RootLayout({
                 "Full Stack Development",
                 "Go",
                 "Distributed Systems",
-                "Micro Services",
+                "Microservices",
                 "Google Cloud",
               ],
               alumniOf: {
