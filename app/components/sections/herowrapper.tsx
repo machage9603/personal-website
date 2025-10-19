@@ -28,12 +28,12 @@ const socialIcons = [
   },
   {
     icon: Mail,
-    href: "mailto:machage@example.com",
+    href: "mailto:mikemachage@gmail.com",
     label: "Email",
   },
 ];
 
-const skills = ["Go/Gin", "Python/Django", "NextJS/TypeScript", "Rust"];
+const skills = ["Go/Gin", "Python/Django", "NextJS/TypeScript", "PostreSQL"];
 
 export default function HeroWrapper() {
   const [isVisible, setIsVisible] = useState(false);
