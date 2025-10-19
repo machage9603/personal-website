@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const siteDescription = "Mike Machage's portfolio containing his projects, blog posts, resume and contact information.";
-  const siteUrl = "https://mikemachage.tech";
+  const siteUrl = "https://mikemachage.com";
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -50,9 +50,6 @@ export default function RootLayout({
               },
               knowsAbout: [
                 "Web Development",
-                "Web Design",
-                "UI/UX Design",
-                "Graphic Design",
                 "JavaScript",
                 "TypeScript",
                 "Next.js",
@@ -65,7 +62,6 @@ export default function RootLayout({
                 "Tailwind CSS",
                 "Supabase",
                 "Express.js",
-                "Full Stack Development",
                 "Go",
                 "Distributed Systems",
                 "Microservices",
