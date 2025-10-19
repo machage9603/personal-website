@@ -136,7 +136,8 @@ body {
   * {
     @apply border-border outline-ring/50;
   }
-  html {
+  html, body {
+    @apply w-full min-h-screen;
   scroll-behavior: smooth;
 }
 
