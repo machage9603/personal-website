@@ -39,7 +39,7 @@ export default function About() {
           >
             <div className="space-y-5 text-base md:text-lg text-gray-400 leading-relaxed">
               <p>
-                Backend Engineer specializing in building scalable, cloud-native applications and distributed systems with{" "}
+                A Software Engineer specializing in building scalable, cloud-native applications and distributed systems with{" "}
                 <span className="text-green-400 font-medium">Go</span>. I design and build resilient backend services engineered for high performance and availability on the{" "}
                 <span className="text-green-400 font-medium">Google Cloud Platform</span>.
               </p>
@@ -66,7 +66,7 @@ export default function About() {
               </p>
 
               <p>
-                I am passionate about tackling complex backend problems and am actively seeking a Backend Engineer role where I can contribute to building reliable and scalable systems.
+                I am passionate about tackling complex backend problems and am actively seeking a role where I can contribute to building reliable and scalable systems.
               </p>
             </div>
           </motion.div>

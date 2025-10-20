@@ -78,7 +78,7 @@ A Software Engineer specializing in cloud-native applications and distributed sy
             <div className="space-y-8 lg:space-y-10">
               
               {/* Profile Image Container */}
-              <div className="relative group mx-auto lg:mx-0 w-fit">
+              <div className="relative group mx-auto lg:mx-0 w-full">
                 {/* Glow Effect */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 dark:from-green-400 dark:to-emerald-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-500"></div>
                 
@@ -103,9 +103,9 @@ A Software Engineer specializing in cloud-native applications and distributed sy
                 </div>
               </div>
 
-              {/* Tech Stack */}
+              {/* Stack */}
               <div className="space-y-5 bg-gray-50 dark:bg-gray-900/30 backdrop-blur-sm border border-gray-200 dark:border-gray-800 rounded-xl p-6 lg:p-8">
-                <h3 className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-500 font-semibold">Tech Stack</h3>
+                <h3 className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-500 font-semibold">Stack</h3>
                 <div className="space-y-3">
                   {skills.map((skill, index) => (
                     <div
