@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { isValidEmail } from '@/lib/utils';
 
 export async function POST(request: NextRequest) {
     try {
@@ -10,6 +11,14 @@ export async function POST(request: NextRequest) {
         if (!to || !subject) {
             return NextResponse.json(
                 { message: 'Missing required fields: to, subject' },
+                { status: 400 }
+            );
+        }
+
+        // Validate replyTo if provided
+        if (replyTo && !isValidEmail(replyTo)) {
+            return NextResponse.json(
+                { message: 'Invalid reply-to email address' },
                 { status: 400 }
             );
         }
