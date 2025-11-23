@@ -11,12 +11,17 @@ export function cn(...inputs: ClassValue[]) {
  * @returns true if the email is valid, false otherwise
  */
 export function isValidEmail(email: string): boolean {
+  // Check for null, undefined, or non-string values
+  if (!email || typeof email !== 'string') {
+    return false;
+  }
+
   // More robust email validation regex that handles common edge cases
   // Based on HTML5 email validation specification
-  const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
   
   // Check for suspicious characters that could be used for header injection
-  const suspiciousChars = /[\r\n\0]/;
+  const SUSPICIOUS_CHARS = /[\r\n\0]/;
   
-  return emailRegex.test(email) && !suspiciousChars.test(email);
+  return EMAIL_REGEX.test(email) && !SUSPICIOUS_CHARS.test(email);
 }
