@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer';
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json();
-        const { to, subject, text, html } = body;
+        const { to, subject, text, html, replyTo } = body;
 
         // Validate required fields
         if (!to || !subject) {
@@ -32,16 +32,25 @@ export async function POST(request: NextRequest) {
             },
         });
 
+        // Verify transporter configuration
+        await transporter.verify();
+
         // Send email
-        await transporter.sendMail({
-            from: process.env.EMAIL_USER,
+        const info = await transporter.sendMail({
+            from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
             to,
+            replyTo: replyTo || undefined, // Allow replying directly to the sender
             subject,
             text,
             html,
         });
 
-        return NextResponse.json({ message: 'Email sent successfully' });
+        console.log('Email sent successfully:', info.messageId);
+
+        return NextResponse.json({ 
+            message: 'Email sent successfully',
+            messageId: info.messageId 
+        });
     } catch (error) {
         console.error('Error sending email:', error);
         return NextResponse.json(
