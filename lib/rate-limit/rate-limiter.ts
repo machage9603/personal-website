@@ -1,68 +1,78 @@
 import { Ratelimit } from '@upstash/ratelimit';
 import { Redis } from '@upstash/redis';
+import { NextRequest } from 'next/server';
 
-// Simple in-memory Redis adapter interface
-interface MemoryRedisAdapter {
-  sadd: (key: string, ...members: string[]) => Promise<number>;
-  eval: () => Promise<[number, unknown[]]>;
-  get: (key: string) => Promise<unknown>;
-  set: (key: string, value: unknown) => Promise<string>;
-  incr: (key: string) => Promise<number>;
-  expire: (key: string, seconds: number) => Promise<number>;
+// Simple in-memory rate limiter for when Upstash is not configured
+class InMemoryRateLimiter {
+  private store = new Map<string, { count: number; resetTime: number }>();
+  private readonly maxRequests: number;
+  private readonly window: number;
+
+  constructor(limit: number, windowMs: number) {
+    this.maxRequests = limit;
+    this.window = windowMs;
+  }
+
+  async limit(identifier: string) {
+    const now = Date.now();
+    const record = this.store.get(identifier);
+
+    // Clean up expired entries
+    if (record && now > record.resetTime) {
+      this.store.delete(identifier);
+    }
+
+    const current = this.store.get(identifier);
+
+    if (!current) {
+      // First request
+      this.store.set(identifier, {
+        count: 1,
+        resetTime: now + this.window,
+      });
+      return {
+        success: true,
+        limit: this.maxRequests,
+        remaining: this.maxRequests - 1,
+        reset: now + this.window,
+      };
+    }
+
+    if (current.count >= this.maxRequests) {
+      // Rate limit exceeded
+      return {
+        success: false,
+        limit: this.maxRequests,
+        remaining: 0,
+        reset: current.resetTime,
+      };
+    }
+
+    // Increment count
+    current.count++;
+    this.store.set(identifier, current);
+
+    return {
+      success: true,
+      limit: this.maxRequests,
+      remaining: this.maxRequests - current.count,
+      reset: current.resetTime,
+    };
+  }
 }
 
 // Create rate limiter instance
-// This will use Upstash Redis if environment variables are configured
-// Otherwise, it will gracefully handle the case where Redis is not available
 export function createRateLimiter() {
-  // Check if Upstash Redis credentials are available
   const redisUrl = process.env.UPSTASH_REDIS_REST_URL;
   const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN;
 
+  // If Upstash credentials are not available, use in-memory rate limiter
   if (!redisUrl || !redisToken) {
-    console.warn('Upstash Redis credentials not found. Rate limiting will use in-memory storage (not recommended for production).');
-    
-    // Create an in-memory map for development/testing
-    const cache = new Map();
-    
-    // Create a simple in-memory Redis adapter
-    const memoryRedis: MemoryRedisAdapter = {
-      sadd: async (key: string, ...members: string[]) => {
-        const set = cache.get(key) || new Set();
-        members.forEach(m => set.add(m));
-        cache.set(key, set);
-        return set.size;
-      },
-      eval: async () => {
-        return [1, []]; // Simple mock
-      },
-      get: async (key: string) => {
-        return cache.get(key);
-      },
-      set: async (key: string, value: unknown) => {
-        cache.set(key, value);
-        return 'OK';
-      },
-      incr: async (key: string) => {
-        const val = (cache.get(key) as number || 0) + 1;
-        cache.set(key, val);
-        return val;
-      },
-      expire: async (key: string, seconds: number) => {
-        setTimeout(() => cache.delete(key), seconds * 1000);
-        return 1;
-      },
-    };
-    
-    return new Ratelimit({
-      redis: memoryRedis as unknown as Redis,
-      limiter: Ratelimit.slidingWindow(5, '60 s'), // 5 requests per 60 seconds
-      analytics: true,
-      prefix: '@upstash/ratelimit',
-    });
+    console.warn('Upstash Redis credentials not found. Using in-memory rate limiting.');
+    return new InMemoryRateLimiter(5, 60 * 1000); // 5 requests per 60 seconds
   }
 
-  // Create rate limiter with Upstash Redis
+  // Use Upstash Redis for production
   const redis = new Redis({
     url: redisUrl,
     token: redisToken,
@@ -70,14 +80,14 @@ export function createRateLimiter() {
 
   return new Ratelimit({
     redis,
-    limiter: Ratelimit.slidingWindow(5, '60 s'), // 5 requests per 60 seconds
+    limiter: Ratelimit.slidingWindow(5, '60 s'),
     analytics: true,
     prefix: '@upstash/ratelimit',
   });
 }
 
 // Helper function to get IP address from request
-export function getClientIp(request: Request): string {
+export function getClientIp(request: NextRequest): string {
   const forwarded = request.headers.get('x-forwarded-for');
   const realIp = request.headers.get('x-real-ip');
   
