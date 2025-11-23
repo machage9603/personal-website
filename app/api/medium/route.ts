@@ -1,4 +1,29 @@
+// app/api/medium/route.ts
 import { NextResponse } from 'next/server';
+
+interface MediumItem {
+  guid: string;
+  title: string;
+  description?: string;
+  content?: string;
+  pubDate: string;
+  link: string;
+  categories?: string[];
+}
+
+interface RSS2JSONResponse {
+  status: string;
+  items: MediumItem[];
+}
+
+interface Article {
+  id: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  url: string;
+  category: string;
+}
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -18,16 +43,16 @@ export async function GET(request: Request) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const data = await response.json();
+    const data: RSS2JSONResponse = await response.json();
     console.log('Received items:', data.items?.length);
     
     if (data.status !== 'ok') {
       throw new Error('RSS2JSON returned error status');
     }
     
-    const articles = data.items
-      .slice(0, 3) 
-      .map((item: any) => ({
+    const articles: Article[] = data.items
+      .slice(0, 3) // Only get the latest 3 articles
+      .map((item: MediumItem) => ({
         id: item.guid,
         title: item.title,
         excerpt: stripHtml(item.description || item.content || '').substring(0, 150) + '...',
@@ -37,10 +62,11 @@ export async function GET(request: Request) {
       }));
     
     return NextResponse.json({ articles });
-  } catch (error: any) {
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
     console.error('Error details:', error);
     return NextResponse.json(
-      { error: error.message, articles: [] },
+      { error: errorMessage, articles: [] },
       { status: 500 }
     );
   }
