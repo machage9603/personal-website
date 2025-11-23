@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: http://mikemachage.tech
+Host: http://personal-website-chi-vert-57.vercel.app
 
 # Sitemaps
-Sitemap: http://mikemachage.tech/sitemap.xml
+Sitemap: http://personal-website-chi-vert-57.vercel.app/sitemap.xml

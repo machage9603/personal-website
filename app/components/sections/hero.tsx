@@ -84,21 +84,15 @@ A Software Engineer specializing in cloud-native applications and distributed sy
                 
                 {/* Main Container */}
                 <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-full lg:h-96 xl:h-[420px] rounded-2xl border-2 border-gray-200 dark:border-gray-800 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-950">
-                  {/* Placeholder - Replace with actual image */}
                   <div className="w-full h-full flex items-center justify-center relative">
                     {/* Grid Pattern Overlay */}
                     <div className="absolute inset-0 bg-[linear-gradient(rgba(34,197,94,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.03)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(74,222,128,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(74,222,128,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
                     
-                    {/* Profile Placeholder */}
-                    <div className="relative z-10 w-32 h-32 lg:w-40 lg:h-40 border-2 border-green-500 dark:border-green-400 rounded-full flex items-center justify-center text-green-500 dark:text-green-400 text-4xl lg:text-5xl font-bold shadow-lg shadow-green-500/20 dark:shadow-green-400/20">
-                      MM
-                    </div>
-                    
-                    {/* <img 
-                      src="/path-to-your-image.jpg" 
+                    <img 
+                      src="/portfolio.jpg" 
                       alt="Mike Machage" 
                       className="w-full h-full object-cover object-center"
-                    /> */}
+                    /> 
                   </div>
                 </div>
               </div>

@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const siteDescription = "Mike Machage's portfolio containing his projects, blog posts, resume and contact information.";
-  const siteUrl = "https://mikemachage.com";
+  const siteUrl = "https://personal-website-chi-vert-57.vercel.app";
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -69,7 +69,7 @@ export default function RootLayout({
               ],
               alumniOf: {
                 "@type": "EducationalOrganization",
-                name: "University of Eldoret",
+                name: "ALX Africa",
               },
             }),
           }}
