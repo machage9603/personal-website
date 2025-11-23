@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { isValidEmail } from '@/lib/utils';
 import { createRateLimiter, getClientIp } from '@/lib/rate-limit/rate-limiter';
 
 export async function POST(request: NextRequest) {
@@ -34,6 +35,22 @@ export async function POST(request: NextRequest) {
         if (!to || !subject) {
             return NextResponse.json(
                 { message: 'Missing required fields: to, subject' },
+                { status: 400 }
+            );
+        }
+
+        // Validate email addresses to prevent header injection
+        if (!isValidEmail(to)) {
+            return NextResponse.json(
+                { message: 'Invalid recipient email address' },
+                { status: 400 }
+            );
+        }
+
+        // Validate replyTo if provided
+        if (replyTo && !isValidEmail(replyTo)) {
+            return NextResponse.json(
+                { message: 'Invalid reply-to email address' },
                 { status: 400 }
             );
         }
