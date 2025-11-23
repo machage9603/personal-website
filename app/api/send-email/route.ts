@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
         }
 
         // Validate email addresses to prevent header injection
-        if (typeof to !== 'string' || !isValidEmail(to)) {
+        if (!isValidEmail(to)) {
             return NextResponse.json(
                 { message: 'Invalid recipient email address' },
                 { status: 400 }
@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
         }
 
         // Validate replyTo if provided
-        if (replyTo && (typeof replyTo !== 'string' || !isValidEmail(replyTo))) {
+        if (replyTo && !isValidEmail(replyTo)) {
             return NextResponse.json(
                 { message: 'Invalid reply-to email address' },
                 { status: 400 }
