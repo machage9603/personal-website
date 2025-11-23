@@ -25,6 +25,8 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.22",
+    "lineicons": "^1.3.2",
+    "lineicons-react": "^2.0.0",
     "lucide-react": "^0.544.0",
     "next": "^15.5.4",
     "next-sitemap": "^4.2.3",
