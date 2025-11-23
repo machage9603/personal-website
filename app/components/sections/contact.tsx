@@ -52,6 +52,7 @@ export default function Contact() {
         },
         body: JSON.stringify({
           to: 'mikemachage@gmail.com',
+          replyTo: formData.email, 
           subject: `New Contact Form Message from ${formData.name}`,
           text: `
             Name: ${formData.name}
@@ -62,16 +63,18 @@ export default function Contact() {
             <h2>New Contact Form Submission</h2>
             <p><strong>Name:</strong> ${formData.name}</p>
             <p><strong>Email:</strong> ${formData.email}</p>
-            <p><strong>Message:</strong> ${formData.message}</p>
+            <p><strong>Message:</strong></p>
+            <p>${formData.message.replace(/\n/g, '<br>')}</p>
           `,
         }),
       });
 
+      const result = await response.json();
       if (response.ok) {
         setStatus('Message sent successfully!');
         setFormData({ name: '', email: '', message: '' });
       } else {
-        setStatus('Failed to send message. Please try again.');
+        setStatus(`Failed to send message: ${result.error || 'Please try again.'}`);
       }
     } catch (error) {
       console.error('Error sending email:', error);
@@ -80,7 +83,6 @@ export default function Contact() {
       setIsSubmitting(false);
     }
   };
-
   return (
     <>
       <Navbar />

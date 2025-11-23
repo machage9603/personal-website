@@ -1,10 +1,34 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { createRateLimiter, getClientIp } from '@/lib/rate-limit/rate-limiter';
 
 export async function POST(request: NextRequest) {
     try {
+        // Apply rate limiting
+        const rateLimiter = createRateLimiter();
+        const identifier = getClientIp(request);
+        const { success, limit, reset, remaining } = await rateLimiter.limit(identifier);
+
+        // Set rate limit headers
+        const headers = {
+            'X-RateLimit-Limit': limit.toString(),
+            'X-RateLimit-Remaining': remaining.toString(),
+            'X-RateLimit-Reset': new Date(reset).toISOString(),
+        };
+
+        if (!success) {
+            console.warn(`Rate limit exceeded for IP: ${identifier}`);
+            return NextResponse.json(
+                { 
+                    message: 'Too many requests. Please try again later.',
+                    retryAfter: new Date(reset).toISOString()
+                },
+                { status: 429, headers }
+            );
+        }
+
         const body = await request.json();
-        const { to, subject, text, html } = body;
+        const { to, subject, text, html, replyTo } = body;
 
         // Validate required fields
         if (!to || !subject) {
@@ -32,16 +56,25 @@ export async function POST(request: NextRequest) {
             },
         });
 
+        // Verify transporter configuration
+        await transporter.verify();
+
         // Send email
-        await transporter.sendMail({
-            from: process.env.EMAIL_USER,
+        const info = await transporter.sendMail({
+            from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
             to,
+            replyTo: replyTo || undefined, // Allow replying directly to the sender
             subject,
             text,
             html,
         });
 
-        return NextResponse.json({ message: 'Email sent successfully' });
+        console.log('Email sent successfully:', info.messageId);
+
+        return NextResponse.json({ 
+            message: 'Email sent successfully',
+            messageId: info.messageId 
+        }, { headers });
     } catch (error) {
         console.error('Error sending email:', error);
         return NextResponse.json(
