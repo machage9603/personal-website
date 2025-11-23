@@ -6,6 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 // Email validation regex based on HTML5 specification (excluding potentially dangerous characters)
+// Note: Characters like +, =, and ' are valid in emails per RFC 5322 (e.g., user+tag@example.com)
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_{~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 // Characters that could be used for email header injection
@@ -19,6 +20,11 @@ const SUSPICIOUS_CHARS = /[\r\n\0]/;
 export function isValidEmail(email: unknown): boolean {
   // Check for null, undefined, non-string values, or empty strings
   if (!email || typeof email !== 'string' || email.trim() === '') {
+    return false;
+  }
+
+  // RFC 5321 specifies maximum email length of 320 characters
+  if (email.length > 320) {
     return false;
   }
 
