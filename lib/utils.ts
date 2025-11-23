@@ -11,9 +11,9 @@ export function cn(...inputs: ClassValue[]) {
  * @returns true if the email is valid, false otherwise
  */
 export function isValidEmail(email: string): boolean {
-  // RFC 5322 compliant email regex
-  // This regex prevents common email header injection attacks
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // More robust email validation regex that handles common edge cases
+  // Based on HTML5 email validation specification
+  const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
   
   // Check for suspicious characters that could be used for header injection
   const suspiciousChars = /[\r\n\0]/;

@@ -15,6 +15,14 @@ export async function POST(request: NextRequest) {
             );
         }
 
+        // Validate email addresses to prevent header injection
+        if (!isValidEmail(to)) {
+            return NextResponse.json(
+                { message: 'Invalid recipient email address' },
+                { status: 400 }
+            );
+        }
+
         // Validate replyTo if provided
         if (replyTo && !isValidEmail(replyTo)) {
             return NextResponse.json(
