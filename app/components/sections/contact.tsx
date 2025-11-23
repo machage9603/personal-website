@@ -70,8 +70,6 @@ export default function Contact() {
       });
 
       const result = await response.json();
-      console.log('Response:', result); 
-
       if (response.ok) {
         setStatus('Message sent successfully!');
         setFormData({ name: '', email: '', message: '' });
