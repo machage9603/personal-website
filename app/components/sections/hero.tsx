@@ -3,17 +3,10 @@
 import { ArrowRight, Download } from "lucide-react";
 import React from "react";
 
-interface SocialIcon {
-  label: string;
-  href: string;
-  icon: React.ComponentType<{ size?: number | string }>;
-}
-
 interface HeroProps {
   isVisible: boolean;
   skills: string[];
   currentSkill: number;
-  socialIcons: SocialIcon[];
 }
 
 export default function Hero({ isVisible, skills, currentSkill }: HeroProps) {
