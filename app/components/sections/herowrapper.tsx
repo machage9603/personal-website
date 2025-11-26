@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { SiBluesky, SiGithub, SiX, SiGmail } from '@icons-pack/react-simple-icons';
-import { Linkedin } from "lineicons-react";
+import { AiFillLinkedin } from "react-icons/ai";
 import Hero from "./hero";
 
 const socialIcons = [
@@ -22,7 +22,7 @@ const socialIcons = [
     label: "Bluesky",
   },
   {
-    icon: Linkedin,
+    icon: AiFillLinkedin,
     href: "https://www.linkedin.com/in/mikemachage/",
     label: "LinkedIn",
   },
@@ -52,7 +52,7 @@ export default function HeroWrapper() {
       isVisible={isVisible}
       skills={skills}
       currentSkill={currentSkill}
-      socialIcons={socialIcons as any}
+      socialIcons={socialIcons}
     />
   );
 }

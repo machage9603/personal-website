@@ -6,7 +6,7 @@ import React from "react";
 interface SocialIcon {
   label: string;
   href: string;
-  icon: React.ComponentType<{ size?: number | string }>;
+  icon: React.ComponentType<{ className?: string }>;
 }
 
 interface HeroProps {
