@@ -60,13 +60,18 @@ A Software Engineer specializing in cloud-native applications and distributed sy
 
             {/* Call to Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button 
-                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              <a
+                href="#projects"
+                aria-label="Scroll to projects section"
+                onClick={e => {
+                  e.preventDefault();
+                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                }}
                 className="group bg-green-500 dark:bg-green-400 text-white dark:text-gray-950 px-8 py-4 rounded-lg font-semibold hover:bg-green-600 dark:hover:bg-green-300 transition-all duration-200 flex items-center justify-center shadow-lg shadow-green-500/20 dark:shadow-green-400/20 hover:shadow-green-500/30 dark:hover:shadow-green-400/30 hover:scale-[1.02]"
               >
                 View Work
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </a>
               <a 
                 href="/resume.pdf" 
                 download="Resume.pdf"
