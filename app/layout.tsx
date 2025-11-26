@@ -36,7 +36,7 @@ export default function RootLayout({
               "@type": "Person",
               name: "Mike Machage",
               url: siteUrl,
-              image: `${siteUrl}/profile.jpg`,
+              image: `${siteUrl}/rportfolio.jpg`,
               description: siteDescription,
               sameAs: [
                 "https://www.linkedin.com/in/mikemachage",
