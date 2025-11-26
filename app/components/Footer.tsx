@@ -1,6 +1,8 @@
 "use client";
 
-import { Github, Twitter, Linkedin, Mail, Heart, Coffee, ArrowUp } from "lucide-react";
+import { Linkedin, Heart, Coffee, ArrowUp } from "lucide-react";
+import { SiBluesky, SiGithub, SiX, SiGmail } from '@icons-pack/react-simple-icons';
+import { AiFillLinkedin } from "react-icons/ai";
 import { Montserrat } from "next/font/google";
 import Link from "next/link";
 
@@ -14,24 +16,29 @@ interface SocialLink {
 
 const socialLinks: SocialLink[] = [
   {
-    icon: Github,
+    icon: SiGithub,
     href: "https://github.com/machage9603",
     label: "GitHub",
   },
   {
-    icon: Twitter,
+    icon: SiX,
     href: "https://twitter.com/sermachage",
     label: "Twitter",
   },
   {
-    icon: Linkedin,
+    icon: AiFillLinkedin,
     href: "https://www.linkedin.com/in/mikemachage/",
     label: "LinkedIn",
   },
   {
-    icon: Mail,
+    icon: SiGmail,
     href: "mailto:mikemachage@gmail.com",
     label: "Email",
+  },
+  {
+    icon: SiBluesky,
+    href: "https://bsky.app/profile/sermachage.bsky.social",
+    label: "Bluesky",
   },
 ];
 

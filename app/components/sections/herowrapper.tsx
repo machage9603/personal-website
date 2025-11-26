@@ -1,18 +1,18 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
-import { SiBluesky } from '@icons-pack/react-simple-icons';
+import { SiBluesky, SiGithub, SiX, SiGmail } from '@icons-pack/react-simple-icons';
+import { Linkedin } from "lineicons-react";
 import Hero from "./hero";
 
 const socialIcons = [
   {
-    icon: Github,
+    icon: SiGithub,
     href: "https://github.com/machage9603",
     label: "GitHub",
   },
   {
-    icon: Twitter,
+    icon: SiX,
     href: "https://twitter.com/sermachage",
     label: "Twitter",
   },
@@ -27,13 +27,13 @@ const socialIcons = [
     label: "LinkedIn",
   },
   {
-    icon: Mail,
+    icon: SiGmail,
     href: "mailto:mikemachage@gmail.com",
     label: "Email",
   },
 ];
 
-const skills = ["Go/Gin", "Python/Django", "NextJS/TypeScript", "Google Cloud", "PostgreSQL"];
+const skills = ["Go/Gin/GoFr", "Python/Django", "NextJS/TypeScript", "Google Cloud", "PostgreSQL"];
 
 export default function HeroWrapper() {
   const [isVisible, setIsVisible] = useState(false);
@@ -52,7 +52,7 @@ export default function HeroWrapper() {
       isVisible={isVisible}
       skills={skills}
       currentSkill={currentSkill}
-      socialIcons={socialIcons}
+      socialIcons={socialIcons as any}
     />
   );
 }
