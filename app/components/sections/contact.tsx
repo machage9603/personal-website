@@ -3,24 +3,26 @@
 import { motion } from "framer-motion";
 import Navbar from "../Navbar";
 import { useState, ChangeEvent, FormEvent } from "react";
-import { Mail, User, MessageSquare, Send, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, User, MessageSquare, Send } from "lucide-react";
+import { SiGithub, SiX } from '@icons-pack/react-simple-icons';
+import { AiFillLinkedin } from "react-icons/ai";
 
 const socialLinks = [
   {
     name: "GitHub",
-    icon: Github,
+    icon: SiGithub,
     url: "https://github.com/machage9603",
     color: "hover:text-gray-300"
   },
   {
     name: "LinkedIn",
-    icon: Linkedin,
+    icon: AiFillLinkedin,
     url: "https://linkedin.com/in/mike-machage",
     color: "hover:text-blue-400"
   },
   {
-    name: "Twitter",
-    icon: Twitter,
+    name: "X (Twitter)",
+    icon: SiX,
     url: "https://twitter.com/mikemachage",
     color: "hover:text-sky-400"
   }

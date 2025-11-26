@@ -3,17 +3,10 @@
 import { ArrowRight, Download } from "lucide-react";
 import React from "react";
 
-interface SocialIcon {
-  label: string;
-  href: string;
-  icon: React.ComponentType<{ size?: number | string }>;
-}
-
 interface HeroProps {
   isVisible: boolean;
   skills: string[];
   currentSkill: number;
-  socialIcons: SocialIcon[];
 }
 
 export default function Hero({ isVisible, skills, currentSkill }: HeroProps) {
@@ -47,7 +40,7 @@ export default function Hero({ isVisible, skills, currentSkill }: HeroProps) {
 
             {/* Description */}
             <p className="text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl font-light">
-A Software Engineer specializing in cloud-native applications and distributed systems with Go. Proven ability to design and build resilient, high-performance services on Google Cloud, demonstrated through projects including a scalable microservices platform on GKE and an event-driven data processing pipeline.
+A Software Engineer specializing in cloud-native applications and distributed systems. Proven ability to design and build resilient, high-performance services on Google Cloud, demonstrated through projects including a scalable microservices platform on GKE and an event-driven data processing pipeline.
             </p>
 
             {/* Dynamic Role */}
@@ -58,18 +51,28 @@ A Software Engineer specializing in cloud-native applications and distributed sy
               </span>
             </div>
 
-            
-
-            {/* Action Buttons */}
+            {/* Call to Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button className="group bg-green-500 dark:bg-green-400 text-white dark:text-gray-950 px-8 py-4 rounded-lg font-semibold hover:bg-green-600 dark:hover:bg-green-300 transition-all duration-200 flex items-center justify-center shadow-lg shadow-green-500/20 dark:shadow-green-400/20 hover:shadow-green-500/30 dark:hover:shadow-green-400/30 hover:scale-[1.02]">
+              <a
+                href="#projects"
+                aria-label="Scroll to projects section"
+                onClick={e => {
+                  e.preventDefault();
+                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="group bg-green-500 dark:bg-green-400 text-white dark:text-gray-950 px-8 py-4 rounded-lg font-semibold hover:bg-green-600 dark:hover:bg-green-300 transition-all duration-200 flex items-center justify-center shadow-lg shadow-green-500/20 dark:shadow-green-400/20 hover:shadow-green-500/30 dark:hover:shadow-green-400/30 hover:scale-[1.02]"
+              >
                 View Work
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="group border-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 px-8 py-4 rounded-lg font-semibold hover:border-green-500 dark:hover:border-green-400 hover:text-gray-900 dark:hover:text-white transition-all duration-200 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-900/50">
+              </a>
+              <a 
+                href="/resume.pdf" 
+                download="Resume.pdf"
+                className="group border-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 px-8 py-4 rounded-lg font-semibold hover:border-green-500 dark:hover:border-green-400 hover:text-gray-900 dark:hover:text-white transition-all duration-200 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-900/50"
+              >
                 <Download className="mr-2 w-5 h-5" />
                 Resume
-              </button>
+              </a>
             </div>
           </div>
 
@@ -89,7 +92,7 @@ A Software Engineer specializing in cloud-native applications and distributed sy
                     <div className="absolute inset-0 bg-[linear-gradient(rgba(34,197,94,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.03)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(74,222,128,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(74,222,128,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
                     
                     <img 
-                      src="/portfolio.jpg" 
+                      src="/rportfolio.jpg" 
                       alt="Mike Machage" 
                       className="w-full h-full object-cover object-center"
                     /> 
