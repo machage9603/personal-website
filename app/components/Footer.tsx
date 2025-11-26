@@ -1,6 +1,6 @@
 "use client";
 
-import { Linkedin, Heart, Coffee, ArrowUp } from "lucide-react";
+import { Heart, Coffee, ArrowUp } from "lucide-react";
 import { SiBluesky, SiGithub, SiX, SiGmail } from '@icons-pack/react-simple-icons';
 import { AiFillLinkedin } from "react-icons/ai";
 import { Montserrat } from "next/font/google";
