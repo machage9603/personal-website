@@ -11,19 +11,19 @@ const socialLinks = [
   {
     name: "GitHub",
     icon: SiGithub,
-    url: "https://github.com/machage9603",
+    url: "https://github.com/sermachage",
     color: "hover:text-gray-300"
   },
   {
     name: "LinkedIn",
     icon: AiFillLinkedin,
-    url: "https://linkedin.com/in/mike-machage",
+    url: "https://linkedin.com/in/mikemachage",
     color: "hover:text-blue-400"
   },
   {
     name: "X (Twitter)",
     icon: SiX,
-    url: "https://twitter.com/mikemachage",
+    url: "https://twitter.com/sermachage",
     color: "hover:text-sky-400"
   }
 ];
