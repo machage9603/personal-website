@@ -2,6 +2,7 @@
 
 import { ArrowRight, Download } from "lucide-react";
 import React from "react";
+import Image from "next/image";
 
 interface HeroProps {
   isVisible: boolean;
@@ -91,7 +92,7 @@ A Software Engineer specializing in cloud-native applications and distributed sy
                     {/* Grid Pattern Overlay */}
                     <div className="absolute inset-0 bg-[linear-gradient(rgba(34,197,94,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.03)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(74,222,128,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(74,222,128,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
                     
-                    <img 
+                    <Image 
                       src="/rportfolio.jpg" 
                       alt="Mike Machage" 
                       className="w-full h-full object-cover object-center"
