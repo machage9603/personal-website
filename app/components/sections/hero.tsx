@@ -96,11 +96,12 @@ A Software Engineer specializing in cloud-native applications and distributed sy
                       src="/rportfolio.jpg" 
                       alt="Mike Machage" 
                       className="w-full h-full object-cover object-center"
+                      width={320}
+                      height={320}
                     /> 
                   </div>
                 </div>
               </div>
-
               {/* Stack */}
               <div className="space-y-5 bg-gray-50 dark:bg-gray-900/30 backdrop-blur-sm border border-gray-200 dark:border-gray-800 rounded-xl p-6 lg:p-8">
                 <h3 className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-500 font-semibold">Stack</h3>
