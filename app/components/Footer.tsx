@@ -17,7 +17,7 @@ interface SocialLink {
 const socialLinks: SocialLink[] = [
   {
     icon: SiGithub,
-    href: "https://github.com/machage9603",
+    href: "https://github.com/sermachage",
     label: "GitHub",
   },
   {
@@ -78,14 +78,14 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-base text-gray-400 leading-relaxed max-w-md">
-              Backend Engineer specializing in cloud-native applications and distributed systems with Go.
+              Software Engineer specializing in cloud-native applications, microservices & distributed systems
             </p>
             <div className="flex items-center gap-3">
               <div className="relative">
                 <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                 <div className="absolute inset-0 w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
               </div>
-              <span className="text-sm text-gray-500">Available for freelance work</span>
+              <span className="text-sm text-gray-500">Available for work</span>
             </div>
           </div>
 

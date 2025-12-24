@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         siteName: siteName,
         images: [
             {
-                url: `${siteUrl}/og-image.jpg`,
+                url: `${siteUrl}/rportfolio.jpg`,
                 width: 1200,
                 height: 630,
                 alt: "Mike Machage | Software Engineer"
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         site: "@SerMachage",
         title: siteName,
         description: siteDescription,
-        images: [`${siteUrl}/twitter-image.jpg`]
+        images: [`${siteUrl}/rportfolio.jpg`]
     },
     alternates: {
         canonical: siteUrl,
