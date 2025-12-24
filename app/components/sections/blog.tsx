@@ -33,7 +33,7 @@ async function fetchMediumPosts(username: string): Promise<MediumArticle[]> {
 export default function Blog() {
   const [articles, setArticles] = useState<MediumArticle[]>([]);
   const [loading, setLoading] = useState(true);
-  const mediumUsername = "machage_";
+  const mediumUsername = "sermachage";
 
   useEffect(() => {
     async function loadArticles() {
